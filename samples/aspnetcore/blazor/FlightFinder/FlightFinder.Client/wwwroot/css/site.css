@@ -1,0 +1,305 @@
+﻿/* Generated from site.scss. Do not modify directly. */
+/*
+    The SCSS structure here is not well organised. There's a lot of unnecessary repetition,
+    and no use of variables to factor out common or easily-changeable values.
+    
+    If you're a SCSS expert, please consider submitting a PR to show how well-organised SCSS
+    should look. Ideally it should be as predictable and industry-standard as possible.
+*/
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+}
+
+#search-and-results-area {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+.arrow {
+    flex-grow: 0;
+    font-size: 20px;
+    color: white;
+}
+
+.form-control {
+    white-space: nowrap;
+}
+
+    .form-control:focus-within {
+        border-color: #2784ff;
+    }
+
+    .form-control div {
+        color: #c4c4c4;
+        flex: initial;
+        width: 75px;
+    }
+
+        .form-control div i {
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #eee;
+        }
+
+    .form-control input {
+        border: 0;
+        flex: auto;
+        width: 0;
+        padding-left: 6px;
+        background: none;
+        font-weight: 600;
+        color: white;
+    }
+
+        .form-control input:focus {
+            outline: none;
+        }
+
+.row {
+    flex-wrap: nowrap !important;
+}
+
+.greyout {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+}
+
+    .greyout > .cover {
+        background: rgba(150, 150, 150, 0.5);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+#search-area {
+    flex: initial;
+    background: linear-gradient(135deg, #cb60b3 0%, #c146a1 30%, #a80077 85%, #db36a4 100%);
+}
+
+    #search-area select {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        color: white;
+        font-weight: 600;
+    }
+
+    #search-area .form-control {
+        border: none;
+        padding-bottom: .25rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+
+    #search-area select:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #search-area select option {
+        color: black;
+    }
+
+    #search-area button {
+        box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.4);
+        background-color: white;
+        border: none;
+        font-weight: 600;
+        color: black;
+    }
+
+#results-area {
+    flex: auto;
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    position: relative;
+    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
+}
+
+    #results-area .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        #results-area .title .custom-select {
+            width: auto;
+            border: none;
+            background-color: #d8d8d8;
+        }
+
+            #results-area .title .custom-select option {
+                background-color: white;
+            }
+
+    #results-area h2 {
+        font-weight: 200;
+    }
+
+    #results-area ul {
+        flex: auto;
+    }
+
+    #results-area h4 {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    #results-area .airline small {
+        color: #777;
+        font-size: 0.8rem !important;
+        display: block;
+    }
+
+    #results-area .d-flex button {
+        width: 100px;
+        flex: initial;
+    }
+
+    #results-area .d-flex .arrow {
+        width: 30px;
+        flex: initial;
+        color: black;
+    }
+
+    #results-area .symbol {
+        width: 30px;
+        flex: initial;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #afafaf;
+    }
+
+    #results-area .date {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    #results-area .departure {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    #results-area .arrow {
+        text-align: center;
+    }
+
+    #results-area .arrival {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    #results-area .duration {
+        text-align: center;
+    }
+
+    #results-area .price {
+        flex: initial;
+        width: 120px;
+        text-align: center;
+    }
+
+    #results-area button {
+        background-color: #9d136d;
+        color: white;
+    }
+
+        #results-area button:hover, #results-area button:active {
+            background-color: #e558b4;
+        }
+
+    #results-area li > blazor-component {
+        display: flex;
+        flex: auto;
+        align-items: center;
+    }
+
+        #results-area li > blazor-component > div {
+            flex: 1 0;
+        }
+
+#selections-area {
+    font-size: 0.9rem;
+    flex: none;
+    width: 350px;
+    background: #404040;
+    box-shadow: inset 20px 0 20px -20px rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
+}
+
+    #selections-area h2 {
+        color: #9d9c9c;
+        font-weight: 200;
+    }
+
+    #selections-area h4 {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: black;
+    }
+
+    #selections-area ul.mb-4 li:first-child {
+        background-color: #9d136d;
+        border-color: #9d136d;
+        color: white;
+        position: relative;
+    }
+
+    #selections-area .date {
+        flex: auto;
+    }
+
+    #selections-area .departure, #selections-area .arrival, #selections-area .price {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    #selections-area .airline {
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    #selections-area .arrow {
+        text-align: center;
+        width: 40px;
+        flex: initial;
+        color: black;
+    }
+
+    #selections-area .price h2 {
+        color: black;
+        font-weight: 400;
+    }
+
+    #selections-area button {
+        background-color: #9d136d;
+        color: white;
+        margin-left: 12px;
+    }
+
+        #selections-area button.close {
+            position: absolute;
+            right: 12px;
+            top: 8px;
+        }
+
+    #selections-area li > blazor-component {
+        display: flex;
+        flex: auto;
+        align-items: center;
+    }
+
+        #selections-area li > blazor-component > div {
+            flex: 1 0;
+        }

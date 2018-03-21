@@ -1,0 +1,18 @@
+﻿@inject HttpClient Http
+
+<datalist id="airports">
+    @foreach (var airport in airports)
+    {
+        <option value=@airport.Code>@airport.DisplayName (@airport.Code)</option>
+    }
+</datalist>
+
+@functions
+{
+    private Airport[] airports = Array.Empty<Airport>();
+
+    protected override async Task OnInitAsync()
+    {
+        airports = await Http.GetJsonAsync<Airport[]>("/api/airports");
+    }
+}
