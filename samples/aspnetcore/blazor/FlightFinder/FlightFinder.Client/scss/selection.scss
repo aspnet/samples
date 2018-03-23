@@ -1,0 +1,88 @@
+﻿#selections-area
+{
+    font-size: 0.9rem;
+    flex: none;
+    width: 350px;
+    background: #404040;
+    box-shadow: inset 20px 0 20px -20px rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+
+    h2
+    {
+        color: #9d9c9c;
+        font-weight: 200;
+    }
+
+    h4
+    {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: black;
+    }
+
+    ul.mb-4 li:first-child
+    {
+        background-color: #9d136d;
+        border-color: #9d136d;
+        color: white;
+        position: relative;
+    }
+
+    .date
+    {
+        flex: auto;
+    }
+
+    .departure, .arrival, .price
+    {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    .airline
+    {
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    .arrow
+    {
+        text-align: center;
+        width: 40px;
+        flex: initial;
+        color: black;
+    }
+
+    .price h2
+    {
+        color: black;
+        font-weight: 400;
+    }
+
+    button
+    {
+        background-color: #9d136d;
+        color: white;
+        margin-left: 12px;
+
+        &.close
+        {
+            position: absolute;
+            right: 12px;
+            top: 8px;
+        }
+    }
+    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
+    li > blazor-component
+    {
+        display: flex;
+        flex: auto;
+        align-items: center;
+
+        > div
+        {
+            flex: 1 0;
+        }
+    }
+}

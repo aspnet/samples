@@ -1,0 +1,50 @@
+﻿#search-and-results-area
+{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+#search-area
+{
+    flex: initial;
+    background: linear-gradient(135deg, #cb60b3 0%, #c146a1 30%, #a80077 85%, #db36a4 100%);
+
+    select
+    {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        color: white;
+        font-weight: 600;
+    }
+
+    .form-control
+    {
+        border: none;
+        padding-bottom: .25rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+
+    select
+    {
+        &:hover
+        {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        option
+        {
+            color: black;
+        }
+    }
+
+    button
+    {
+        box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.4);
+        background-color: white;
+        border: none;
+        font-weight: 600;
+        color: black;
+    }
+}

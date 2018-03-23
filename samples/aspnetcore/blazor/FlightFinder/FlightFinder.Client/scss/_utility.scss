@@ -1,0 +1,29 @@
+﻿.arrow
+{
+    flex-grow: 0;
+    font-size: 20px;
+    color: white;
+}
+
+
+
+.row
+{
+    flex-wrap: nowrap !important;
+}
+
+.greyout
+{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+
+    > .cover
+    {
+        background: rgba(150, 150, 150, 0.5);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+}
