@@ -6059,7 +6059,7 @@ body {
 
 #search-area {
   flex: initial;
-  background: linear-gradient(135deg, #cb60b3 0%, #c146a1 30%, #a80077 85%, #db36a4 100%); }
+  background: linear-gradient(135deg, #004f9e 0%, #00478f 30%, #003870 85%, #0057ad 100%); }
   #search-area select {
     background-color: rgba(0, 0, 0, 0.15);
     border: none;
@@ -6142,10 +6142,10 @@ body {
     width: 120px;
     text-align: center; }
   #results-area button {
-    background-color: #9d136d;
+    background-color: #003366;
     color: white; }
     #results-area button:hover, #results-area button:active {
-      background-color: #e558b4; }
+      background-color: #0066cc; }
   #results-area li > blazor-component {
     display: flex;
     flex: auto;
@@ -6192,8 +6192,8 @@ body {
     font-size: 16px;
     color: black; }
   #selections-area ul.mb-4 li:first-child {
-    background-color: #9d136d;
-    border-color: #9d136d;
+    background-color: #003366;
+    border-color: #003366;
     color: white;
     position: relative; }
   #selections-area .date {
@@ -6214,7 +6214,7 @@ body {
     color: black;
     font-weight: 400; }
   #selections-area button {
-    background-color: #9d136d;
+    background-color: #003366;
     color: white;
     margin-left: 12px; }
     #selections-area button.close {

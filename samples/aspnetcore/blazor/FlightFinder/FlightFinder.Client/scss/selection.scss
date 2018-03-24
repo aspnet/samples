@@ -22,8 +22,8 @@
 
     ul.mb-4 li:first-child
     {
-        background-color: #9d136d;
-        border-color: #9d136d;
+        background-color: $ff-primary;
+        border-color: $ff-primary;
         color: white;
         position: relative;
     }
@@ -62,7 +62,7 @@
 
     button
     {
-        background-color: #9d136d;
+        background-color: $ff-primary;
         color: white;
         margin-left: 12px;
 
