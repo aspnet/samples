@@ -10,14 +10,6 @@
     flex: initial;
     background: linear-gradient(135deg, $ff-gradient-1 0%, $ff-gradient-2 30%, $ff-gradient-3 85%, $ff-gradient-4 100%);
 
-    select
-    {
-        background-color: rgba(0, 0, 0, 0.15);
-        border: none;
-        color: white;
-        font-weight: 600;
-    }
-
     .form-control
     {
         border: none;
@@ -28,6 +20,11 @@
 
     select
     {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        color: white;
+        font-weight: 600;
+
         &:hover
         {
             background-color: rgba(255, 255, 255, 0.1);
@@ -39,12 +36,5 @@
         }
     }
 
-    button
-    {
-        box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.4);
-        background-color: white;
-        border: none;
-        font-weight: 600;
-        color: black;
-    }
+
 }

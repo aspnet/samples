@@ -110,16 +110,6 @@
         text-align: center;
     }
 
-    button
-    {
-        background-color: $ff-primary;
-        color: white;
-
-        &:hover, &:active
-        {
-            background-color: $ff-primary-hover;
-        }
-    }
     /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
     li > blazor-component
     {
