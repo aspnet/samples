@@ -1,0 +1,39 @@
+﻿.form-control
+{
+    white-space: nowrap;
+
+    &:focus-within
+    {
+        border-color: #2784ff;
+    }
+
+    div
+    {
+        color: #c4c4c4;
+        flex: initial;
+        width: 75px;
+
+        i
+        {
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #eee;
+        }
+    }
+
+    input
+    {
+        border: 0;
+        flex: auto;
+        width: 0;
+        padding-left: 6px;
+        background: none;
+        font-weight: 600;
+        color: white;
+
+        &:focus
+        {
+            outline: none;
+        }
+    }
+}

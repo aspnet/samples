@@ -1,0 +1,40 @@
+﻿#search-and-results-area
+{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+#search-area
+{
+    flex: initial;
+    background: linear-gradient(135deg, $ff-gradient-1 0%, $ff-gradient-2 30%, $ff-gradient-3 85%, $ff-gradient-4 100%);
+
+    .form-control
+    {
+        border: none;
+        padding-bottom: .25rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+
+    select
+    {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        color: white;
+        font-weight: 600;
+
+        &:hover
+        {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        option
+        {
+            color: black;
+        }
+    }
+
+
+}

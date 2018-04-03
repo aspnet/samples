@@ -1,0 +1,125 @@
+﻿#results-area
+{
+    flex: auto;
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    position: relative;
+
+    .title
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .custom-select
+        {
+            width: auto;
+            border: none;
+            background-color: #d8d8d8;
+
+            option
+            {
+                background-color: white;
+            }
+        }
+    }
+
+    h2
+    {
+        font-weight: 200;
+    }
+
+    ul
+    {
+        flex: auto;
+    }
+
+    h4
+    {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    .airline small
+    {
+        color: #777;
+        font-size: 0.8rem !important;
+        display: block;
+    }
+
+    .d-flex
+    {
+        button
+        {
+            width: 100px;
+            flex: initial;
+        }
+
+        .arrow
+        {
+            width: 30px;
+            flex: initial;
+            color: black;
+        }
+    }
+
+    .symbol
+    {
+        width: 30px;
+        flex: initial;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #afafaf;
+    }
+
+    .date
+    {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    .departure
+    {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    .arrow
+    {
+        text-align: center;
+    }
+
+    .arrival
+    {
+        text-align: center;
+        color: #777;
+        font-size: 0.8rem !important;
+    }
+
+    .duration
+    {
+        text-align: center;
+    }
+
+    .price
+    {
+        flex: initial;
+        width: 120px;
+        text-align: center;
+    }
+
+    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
+    li > blazor-component
+    {
+        display: flex;
+        flex: auto;
+        align-items: center;
+
+        > div
+        {
+            flex: 1 0;
+        }
+    }
+}

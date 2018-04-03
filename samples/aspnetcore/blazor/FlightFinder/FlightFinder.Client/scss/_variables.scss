@@ -1,0 +1,9 @@
+﻿$ff-primary: #9d136d;
+$ff-primary-hover: lighten($ff-primary, 20%);
+$ff-gradient-1: lighten($ff-primary, 11%);
+$ff-gradient-2: lighten($ff-primary, 8%);
+$ff-gradient-3: lighten($ff-primary, 2%);
+$ff-gradient-4: lighten($ff-primary, 14%);
+
+// Bootstrap theme color maps
+$theme-colors: ( "primary": $ff-primary);
