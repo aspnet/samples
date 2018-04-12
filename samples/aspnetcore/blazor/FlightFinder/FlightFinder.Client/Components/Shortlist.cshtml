@@ -8,7 +8,7 @@
                 <nobr>@item.Outbound.FromAirportCode</nobr> -
                 <nobr>@item.Outbound.ToAirportCode</nobr>
             </div>
-            <button type="button" class="close" aria-label="Close" @onclick(() => OnRemoveItinerary(item))>
+            <button type="button" class="close" aria-label="Close" onclick=@(() => OnRemoveItinerary(item))>
                 <span aria-hidden="true">&times;</span>
             </button>
         </li>
