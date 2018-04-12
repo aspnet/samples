@@ -3,7 +3,7 @@
     {
         <div class="title">
             <h2 class="my-3">@Itineraries.Count results</h2>
-            <select class="custom-select" @bind(chosenSortOrder)>
+            <select class="custom-select" bind=chosenSortOrder>
                 <option value=@SortOrder.Price>Cheapest</option>
                 <option value=@SortOrder.Duration>Quickest</option>
             </select>
@@ -22,7 +22,7 @@
                 </ul>
                 <div class="price ml-3">
                     <h3>@item.Price.ToString("$0")</h3>
-                    <button class="btn" @onclick(() => OnAddItinerary(item))>Add</button>
+                    <button class="btn" onclick=@(() => OnAddItinerary(item))>Add</button>
                 </div>
             </div>
         }
