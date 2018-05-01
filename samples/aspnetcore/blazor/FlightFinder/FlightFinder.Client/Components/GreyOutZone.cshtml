@@ -6,6 +6,8 @@
 
 @functions
 {
-    public RenderFragment ChildContent { get; set; }
-    public bool IsGreyedOut { get; set; }
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+    [Parameter]
+    private bool IsGreyedOut { get; set; }
 }
