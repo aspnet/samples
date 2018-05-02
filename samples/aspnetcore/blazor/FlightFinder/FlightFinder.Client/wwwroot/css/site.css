@@ -119,7 +119,6 @@ body {
     background-color: #f0f0f0;
     overflow-y: scroll;
     position: relative;
-    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
 }
 
     #results-area .title {
@@ -217,15 +216,9 @@ body {
             background-color: #e558b4;
         }
 
-    #results-area li > blazor-component {
-        display: flex;
-        flex: auto;
-        align-items: center;
+    #results-area li > div {
+        flex: 1 0;
     }
-
-        #results-area li > blazor-component > div {
-            flex: 1 0;
-        }
 
 #selections-area {
     font-size: 0.9rem;
@@ -234,7 +227,6 @@ body {
     background: #404040;
     box-shadow: inset 20px 0 20px -20px rgba(0, 0, 0, 0.7);
     overflow-y: auto;
-    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
 }
 
     #selections-area h2 {
@@ -294,12 +286,12 @@ body {
             top: 8px;
         }
 
-    #selections-area li > blazor-component {
+    #selections-area li {
         display: flex;
         flex: auto;
         align-items: center;
     }
 
-        #selections-area li > blazor-component > div {
+        #selections-area li > div {
             flex: 1 0;
         }
