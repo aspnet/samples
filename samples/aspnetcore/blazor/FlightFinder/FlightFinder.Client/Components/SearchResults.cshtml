@@ -32,10 +32,8 @@
 @functions
 {
     // Parameters
-    [Parameter]
-    private ICollection<Itinerary> Itineraries { get; set; }
-    [Parameter]
-    private Action<Itinerary> OnAddItinerary { get; set; }
+    [Parameter] ICollection<Itinerary> Itineraries { get; set; }
+    [Parameter] Action<Itinerary> OnAddItinerary { get; set; }
 
     // Private state
     private SortOrder chosenSortOrder;

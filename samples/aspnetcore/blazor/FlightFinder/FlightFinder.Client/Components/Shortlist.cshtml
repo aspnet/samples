@@ -27,8 +27,7 @@
 
 @functions
 {
-    [Parameter]
-    private ICollection<Itinerary> Itineraries { get; set; }
-    [Parameter]
-    private Action<Itinerary> OnRemoveItinerary { get; set; }
+    [Parameter] ICollection<Itinerary> Itineraries { get; set; }
+
+    [Parameter] Action<Itinerary> OnRemoveItinerary { get; set; }
 }
