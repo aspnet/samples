@@ -25,6 +25,7 @@
 
 @functions
 {
-    public string Symbol { get; set; }
-    public FlightSegment Flight { get; set; }
+    [Parameter] string Symbol { get; set; }
+
+    [Parameter] FlightSegment Flight { get; set; }
 }

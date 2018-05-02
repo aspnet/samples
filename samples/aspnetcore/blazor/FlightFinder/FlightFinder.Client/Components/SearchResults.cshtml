@@ -32,9 +32,9 @@
 @functions
 {
     // Parameters
-    public ICollection<Itinerary> Itineraries { get; set; }
-    public Action<Itinerary> OnAddItinerary { get; set; }
-    
+    [Parameter] ICollection<Itinerary> Itineraries { get; set; }
+    [Parameter] Action<Itinerary> OnAddItinerary { get; set; }
+
     // Private state
     private SortOrder chosenSortOrder;
     private IEnumerable<Itinerary> sortedItineraries

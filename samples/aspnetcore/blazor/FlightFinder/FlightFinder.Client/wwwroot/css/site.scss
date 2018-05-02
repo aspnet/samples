@@ -219,15 +219,8 @@ body {
         }
     }
 
-    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
-    li > blazor-component {
-        display: flex;
-        flex: auto;
-        align-items: center;
-
-        > div {
-            flex: 1 0;
-        }
+    li > div {
+        flex: 1 0;
     }
 }
 
@@ -296,8 +289,7 @@ body {
         }
     }
 
-    /* Workaround for "blazor-component" wrapper elements. These will be removed shortly. */
-    li > blazor-component {
+    li {
         display: flex;
         flex: auto;
         align-items: center;
