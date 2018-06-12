@@ -32,7 +32,7 @@
 @functions
 {
     // Parameters
-    [Parameter] ICollection<Itinerary> Itineraries { get; set; }
+    [Parameter] IReadOnlyList<Itinerary> Itineraries { get; set; }
     [Parameter] Action<Itinerary> OnAddItinerary { get; set; }
 
     // Private state
