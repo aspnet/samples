@@ -27,7 +27,7 @@
 
 @functions
 {
-    [Parameter] ICollection<Itinerary> Itineraries { get; set; }
+    [Parameter] IReadOnlyList<Itinerary> Itineraries { get; set; }
 
     [Parameter] Action<Itinerary> OnRemoveItinerary { get; set; }
 }
