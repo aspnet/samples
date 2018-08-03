@@ -1,0 +1,152 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Set padding to display errors that occur during databinding */
+.padding-error {
+    padding-top: 20px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors,
+.validationMessage {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*#region Todo */
+.todoList {
+    position: relative;
+    width: 280px;
+    min-height: 280px;
+    display: inline-block;
+    margin: 1em;
+    padding-top: 8px;
+    text-align: center;
+    -moz-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    background-color: #ffc;
+    vertical-align: top;
+}
+
+    .todoList:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-width: 0 0 24px 24px;
+        border-style: solid;
+        border-color: #f6f6c7 #fff;
+    }
+
+    .todoList header, .todoList .header {
+        z-index: auto;
+    }
+
+    .todoList header input, .todoList .header input,
+    .todoList header input:focus, .todoList .header input:focus,
+    .todoList ul input, .todoList ul input:focus, .todoList ul button, .addTodo {
+        font-family: 'Bradley Hand ITC';
+        outline: none;
+    }
+
+    .todoList header input,
+    .todoList .header input {
+        border: none;
+        background: none;
+        text-align: center;
+        width: 95%;
+        font-size: 1.8em;
+    }
+
+    .todoList ul {
+        list-style: none;
+        padding: 0 0 0 12px;
+        margin: 0;
+    }
+
+    .addTodo {
+        padding: 0;
+        margin-left: 25px;
+        display: block;
+        color: #999;
+    }
+
+    .todoList input[type=text], .addTodo {
+        width: 200px;
+        border: none;
+        background: none;
+    }
+
+    .todoList input[disabled] {
+        color: #666;
+        text-decoration: line-through;
+    }
+
+    .todoList a {
+        color: silver;
+        text-decoration: none;
+        font: .8em verdana;
+    }
+
+        .todoList a.deletelist {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: silver;
+            color: white;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+.todoItemInput::-ms-clear {
+    display: none;
+}
+/*#endregion */
+
+@media only screen and (max-width: 767px) {
+    .nofloat {
+        float: none;
+        padding: 10px 15px;
+    }
+}

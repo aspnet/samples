@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationSample", "ValidationSample\ValidationSample.csproj", "{A56257EE-9369-484D-B8AA-2F600F3CD71B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CCB424FE-9323-4D2C-9721-E1B787876B77}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{986D5AF8-3A76-4DA1-878B-3E1F9A45E402}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A56257EE-9369-484D-B8AA-2F600F3CD71B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56257EE-9369-484D-B8AA-2F600F3CD71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56257EE-9369-484D-B8AA-2F600F3CD71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56257EE-9369-484D-B8AA-2F600F3CD71B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

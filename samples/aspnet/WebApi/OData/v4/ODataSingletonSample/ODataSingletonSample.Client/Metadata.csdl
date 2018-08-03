@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices m:DataServiceVersion="4.0" m:MaxDataServiceVersion="4.0" xmlns:m="http://docs.oasis-open.org/odata/ns/metadata">
+    <Schema Namespace="WebStack.QA.Test.OData.Singleton" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Company" Type="WebStack.QA.Test.OData.Singleton.Company" />
+      </EntityType>
+      <EntityType Name="Company">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Revenue" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Category" Type="WebStack.QA.Test.OData.Singleton.CompanyCategory" Nullable="false" />
+        <NavigationProperty Name="Employees" Type="Collection(WebStack.QA.Test.OData.Singleton.Employee)" />
+      </EntityType>
+      <EntityType Name="SubCompany" BaseType="WebStack.QA.Test.OData.Singleton.Company">
+        <Property Name="Location" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Office" Type="WebStack.QA.Test.OData.Singleton.Office" />
+      </EntityType>
+      <ComplexType Name="Office">
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+      </ComplexType>
+      <EnumType Name="CompanyCategory">
+        <Member Name="IT" Value="0" />
+        <Member Name="Communication" Value="1" />
+        <Member Name="Electronics" Value="2" />
+        <Member Name="Others" Value="3" />
+      </EnumType>
+      <Action Name="ResetDataSource" IsBound="true" m:IsAlwaysBindable="true">
+        <Parameter Name="bindingParameter" Type="Collection(WebStack.QA.Test.OData.Singleton.Employee)" />
+      </Action>
+      <Action Name="ResetDataSource" IsBound="true" m:IsAlwaysBindable="true">
+        <Parameter Name="bindingParameter" Type="WebStack.QA.Test.OData.Singleton.Company" />
+      </Action>
+      <Function Name="GetEmployeesCount" IsBound="true" m:IsAlwaysBindable="true">
+        <Parameter Name="bindingParameter" Type="WebStack.QA.Test.OData.Singleton.Company" />
+        <ReturnType Type="Edm.Int32" Nullable="false" />
+      </Function>
+      <EntityContainer Name="Container">
+        <EntitySet Name="Employees" EntityType="WebStack.QA.Test.OData.Singleton.Employee">
+          <NavigationPropertyBinding Path="Company" Target="Umbrella" />
+        </EntitySet>
+        <Singleton Name="Umbrella" Type="WebStack.QA.Test.OData.Singleton.Company">
+          <NavigationPropertyBinding Path="Employees" Target="Employees" />
+        </Singleton>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

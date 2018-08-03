@@ -1,0 +1,99 @@
+﻿@model ROOT_PROJECT_NAMESPACE.Areas.Trace.Models.RequestTrace
+
+@{
+    ViewBag.Title = "ASP.NET WebApi Trace Details";
+}
+
+ <header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+ 
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            @if (Model.Status >= 400) {
+                <h2><span style="color:red;">[@Model.Status : @Model.Reason]</span> @Model.Method @Model.Uri</h2>
+            } else {
+                <h2>[@Model.Status : @Model.Reason] @Model.Method @Model.Uri</h2>
+            }
+
+            <p>@Html.ActionLink("Trace Index", "Index")</p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+
+       <table border="1px"> 
+       <thead>
+            <tr>
+                <th>Status</th> 
+                <th>Level</th> 
+                <th>Category</th> 
+                <th>Kind</th> 
+                <th>Operator</th> 
+                <th>Operation</th> 
+                <th>Message</th> 
+                <th>Error</th> 
+            </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach (var item in Model.Traces)
+        {
+            var isError = item.Status >= 400 || (int)item.Level >= 3;
+            var status = item.Status.ToString();
+
+            if (item.Status == 0)
+            {
+                status = "---";
+            }
+
+            if (isError)
+            {
+            <tr style="background:#FFC0CB;" > 
+                <td>@status</td>
+                <td>@item.Level.ToString()</td>   
+                <td>@item.Category</td>     
+                <td>@item.Kind.ToString()</td>     
+                <td>@item.Operator</td>     
+                <td>@item.Operation</td>     
+                <td>@item.Message</td>     
+                <td>@item.Exception</td>     
+            </tr> 
+            }
+            else
+            {
+            <tr>
+                <td>@status</td>
+                <td>@item.Level.ToString()</td>   
+                <td>@item.Category</td>     
+                <td>@item.Kind.ToString()</td>     
+                <td>@item.Operator</td>     
+                <td>@item.Operation</td>     
+                <td>@item.Message</td>     
+                <td>@item.Exception</td>     
+            </tr> 
+            }
+        }
+
+        </tbody>
+    </table>
+
+    </section>
+</div>
+                    
+
+    @section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    <script>
+        $(function () {
+            $("table thead").addClass("ui-widget-header");
+            $("table tbody").addClass("ui-widget-content");
+        });
+    </script>
+}

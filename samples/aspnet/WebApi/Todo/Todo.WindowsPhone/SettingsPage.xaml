@@ -1,0 +1,78 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Todo.WindowsPhone.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Todo.WindowsPhone" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel>
+                <TextBlock Text="Accounts" />
+                <Button Template="{StaticResource ButtonNoChrome}" Click="AddAccountButton_Click" toolkit:TiltEffect.IsTiltEnabled="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Assets/appbar.add.png" Grid.Column="0" />
+                        <Image Source="/Assets/appbar.base.png" Grid.Column="0" />
+                        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}" Text="add an account" />
+                            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="set up multiple account logins" />
+                        </StackPanel>
+                    </Grid>
+                </Button>
+                <ItemsControl x:Name="AccountsItemControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Template="{StaticResource ButtonNoChrome}" Click="ManageAccountButton_Click" DataContext="{Binding}" toolkit:TiltEffect.IsTiltEnabled="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="64" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Icon}" Margin="0,8,0,0" Grid.Column="0" />
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding Provider}" />
+                                        <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="{Binding ProviderKey}" />
+                                    </StackPanel>
+                                </Grid>
+                                <toolkit:ContextMenuService.ContextMenu>
+                                    <toolkit:ContextMenu>
+                                        <toolkit:MenuItem Header="Delete" Click="DeleteAccountMenuItem_Click" />
+                                    </toolkit:ContextMenu>
+                                </toolkit:ContextMenuService.ContextMenu>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button x:Name="LogOffButton" Content="Log Off" Margin="0,30,0,0" Click="LogOffButton_Click" />
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

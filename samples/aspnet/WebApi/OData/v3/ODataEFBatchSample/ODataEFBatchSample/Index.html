@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Batch requests with datajs and transactions.</title>
+</head>
+<body>
+    <h1>Batch requests with datajs and transactions.</h1>
+    <p>Look at ~/Scripts/app/sample.js to see the two tests.</p>
+    <p>Look at ~/Scripts/app/batch.js to see how to use datajs to send batch requests.</p>
+    <p>Look at ~/Extensions/EntityFrameworkBatchHandler.cs to see how to write a batch handler that does transactions using entity framework.</p>
+    <p>If you want a detailed view of each request use fiddler.</p>
+    <div id="console"></div>
+
+    <script src="/Scripts/datajs-1.1.3.min.js"></script>
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="/Scripts/app/batch.js"></script>
+    <script src="/Scripts/app/console.js"></script>
+    <script src="/Scripts/app/sample.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var c = appConsole.create('#console');
+            var run = sample(c);
+
+            run.contentIdRequest()
+                .then(run.cascadeDeletes)
+                .then(function () {
+                    c.writeLine('<h1>Success!</h1>');
+                }, function (error) {
+                    c.write('<h1>Error</h1>');
+                    c.writeLine(error.message);
+                });
+        });
+    </script>
+
+    <style type="text/css">
+        h1,h2,h3{
+            margin: 5px inherit;
+        }
+    </style>
+</body>
+</html>

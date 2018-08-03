@@ -1,0 +1,115 @@
+﻿<?xml version="1.0"?>
+<ArrayOfBook xmlns="http://schemas.datacontract.org/2004/07/UploadXDocumentSample.Models">
+  <Book>
+    <Author>Gambardella, Matthew</Author>
+    <Description>An in-depth look at creating applications with XML.</Description>
+    <Id>bk101</Id>
+    <Genre>Computer</Genre>
+    <Price>44.95</Price>
+    <PublishDate>2000-10-01</PublishDate>
+    <Title>XML Developer's Guide</Title>
+  </Book>
+  <Book>
+    <Author>Ralls, Kim</Author>
+    <Description>A former architect battles corporate zombies, an evil sorceress, and her own childhood to become queen of the world.</Description>
+    <Id>bk102</Id>
+    <Genre>Fantasy</Genre>
+    <Price>5.95</Price>
+    <PublishDate>2000-12-16</PublishDate>
+    <Title>Midnight Rain</Title>
+  </Book>
+  <Book>
+    <Author>Corets, Eva</Author>
+    <Description>After the collapse of a nanotechnology society in England, the young survivors lay the foundation for a new society.
+    </Description>
+    <Id>bk103</Id>
+    <Genre>Fantasy</Genre>
+    <Price>5.95</Price>
+    <PublishDate>2000-11-17</PublishDate>
+    <Title>Maeve Ascendant</Title>
+  </Book>
+  <Book>
+    <Author>Corets, Eva</Author>
+    <Description>In post-apocalypse England, the mysterious agent known only as Oberon helps to create a new life for the inhabitants of London. Sequel to Maeve Ascendant.
+    </Description>
+    <Id>bk104</Id>
+    <Genre>Fantasy</Genre>
+    <Price>5.95</Price>
+    <PublishDate>2001-03-10</PublishDate>
+    <Title>Oberon's Legacy</Title>
+  </Book>
+  <Book>
+    <Author>Corets, Eva</Author>
+    <Description>The two daughters of Maeve, half-sisters, battle one another for control of England. Sequel to Oberon's Legacy.
+    </Description>
+    <Id>bk105</Id>
+    <Genre>Fantasy</Genre>
+    <Price>5.95</Price>
+    <PublishDate>2001-09-10</PublishDate>
+    <Title>The Sundered Grail</Title>
+  </Book>
+  <Book>
+    <Author>Randall, Cynthia</Author>
+    <Description>When Carla meets Paul at an ornithology conference, tempers fly as feathers get ruffled.</Description>
+    <Id>bk106</Id>
+    <Genre>Romance</Genre>
+    <Price>4.95</Price>
+    <PublishDate>2000-09-02</PublishDate>
+    <Title>Lover Birds</Title>
+  </Book>
+  <Book>
+    <Author>Thurman, Paula</Author>
+    <Description>A deep sea diver finds true love twenty thousand leagues beneath the sea.</Description>
+    <Id>bk107</Id>
+    <Genre>Romance</Genre>
+    <Price>4.95</Price>
+    <PublishDate>2000-11-02</PublishDate>
+    <Title>Splish Splash</Title>
+  </Book>
+  <Book>
+    <Author>Knorr, Stefan</Author>
+    <Description>An anthology of horror stories about roaches, centipedes, scorpions  and other insects.</Description>
+    <Id>bk108</Id>
+    <Genre>Horror</Genre>
+    <Price>4.95</Price>
+    <PublishDate>2000-12-06</PublishDate>
+    <Title>Creepy Crawlies</Title>
+  </Book>
+  <Book>
+    <Author>Kress, Peter</Author>
+    <Description>After an inadvertant trip through a Heisenberg Uncertainty Device, James Salway discovers the problems of being quantum.</Description>
+    <Id>bk109</Id>
+    <Genre>Science Fiction</Genre>
+    <Price>6.95</Price>
+    <PublishDate>2000-11-02</PublishDate>
+    <Title>Paradox Lost</Title>
+  </Book>
+  <Book>
+    <Author>O'Brien, Tim</Author>
+    <Description>Microsoft's .NET initiative is explored in detail in this deep programmer's reference.</Description>
+    <Id>bk110</Id>
+    <Genre>Computer</Genre>
+    <Price>36.95</Price>
+    <PublishDate>2000-12-09</PublishDate>
+    <Title>Microsoft .NET: The Programming Bible</Title>
+  </Book>
+  <Book>
+    <Author>O'Brien, Tim</Author>
+    <Description>The Microsoft MSXML3 parser is covered in detail, with attention to XML DOM interfaces, XSLT processing, SAX and more.</Description>
+    <Id>bk111</Id>
+    <Genre>Computer</Genre>
+    <Price>36.95</Price>
+    <PublishDate>2000-12-01</PublishDate>
+    <Title>MSXML3: A Comprehensive Guide</Title>
+  </Book>
+  <Book>
+    <Author>Galos, Mike</Author>
+    <Description>Microsoft Visual Studio 7 is explored in depth, looking at how Visual Basic, Visual C++, C#, and ASP+ are integrated into a comprehensive development environment.</Description>
+    <Id>bk112</Id>
+    <Genre>Computer</Genre>
+    <Price>49.95</Price>
+    <PublishDate>2001-04-16</PublishDate>
+    <Title>Visual Studio 7: A Comprehensive Guide</Title>
+  </Book>
+</ArrayOfBook>
+

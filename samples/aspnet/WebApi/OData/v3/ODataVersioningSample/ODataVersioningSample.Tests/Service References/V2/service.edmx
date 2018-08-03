@@ -1,0 +1,81 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="3.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="ODataVersioningSample.V2.ViewModels" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="ReleaseDate" Type="Edm.DateTime" />
+        <Property Name="SupportedUntil" Type="Edm.DateTime" />
+        <NavigationProperty Name="Family" Relationship="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_Product_Family_ODataVersioningSample_V2_ViewModels_ProductFamily_FamilyPartner" ToRole="Family" FromRole="FamilyPartner" />
+      </EntityType>
+      <EntityType Name="ProductFamily">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <NavigationProperty Name="Supplier" Relationship="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_ProductFamily_Supplier_ODataVersioningSample_V2_ViewModels_Supplier_SupplierPartner" ToRole="Supplier" FromRole="SupplierPartner" />
+        <NavigationProperty Name="Products" Relationship="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_ProductFamily_Products_ODataVersioningSample_V2_ViewModels_Product_ProductsPartner" ToRole="Products" FromRole="ProductsPartner" />
+      </EntityType>
+      <EntityType Name="Supplier">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Address" Type="ODataVersioningSample.V2.ViewModels.Address" />
+        <NavigationProperty Name="ProductFamilies" Relationship="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_Supplier_ProductFamilies_ODataVersioningSample_V2_ViewModels_ProductFamily_ProductFamiliesPartner" ToRole="ProductFamilies" FromRole="ProductFamiliesPartner" />
+      </EntityType>
+      <ComplexType Name="Address">
+        <Property Name="Street" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="ZipCode" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+      </ComplexType>
+      <Association Name="ODataVersioningSample_V2_ViewModels_Product_Family_ODataVersioningSample_V2_ViewModels_ProductFamily_FamilyPartner">
+        <End Type="ODataVersioningSample.V2.ViewModels.ProductFamily" Role="Family" Multiplicity="0..1" />
+        <End Type="ODataVersioningSample.V2.ViewModels.Product" Role="FamilyPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataVersioningSample_V2_ViewModels_ProductFamily_Supplier_ODataVersioningSample_V2_ViewModels_Supplier_SupplierPartner">
+        <End Type="ODataVersioningSample.V2.ViewModels.Supplier" Role="Supplier" Multiplicity="0..1" />
+        <End Type="ODataVersioningSample.V2.ViewModels.ProductFamily" Role="SupplierPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataVersioningSample_V2_ViewModels_ProductFamily_Products_ODataVersioningSample_V2_ViewModels_Product_ProductsPartner">
+        <End Type="ODataVersioningSample.V2.ViewModels.Product" Role="Products" Multiplicity="*" />
+        <End Type="ODataVersioningSample.V2.ViewModels.ProductFamily" Role="ProductsPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataVersioningSample_V2_ViewModels_Supplier_ProductFamilies_ODataVersioningSample_V2_ViewModels_ProductFamily_ProductFamiliesPartner">
+        <End Type="ODataVersioningSample.V2.ViewModels.ProductFamily" Role="ProductFamilies" Multiplicity="*" />
+        <End Type="ODataVersioningSample.V2.ViewModels.Supplier" Role="ProductFamiliesPartner" Multiplicity="0..1" />
+      </Association>
+    </Schema>
+    <Schema Namespace="Default" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="Container" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Products" EntityType="ODataVersioningSample.V2.ViewModels.Product" />
+        <EntitySet Name="ProductFamilies" EntityType="ODataVersioningSample.V2.ViewModels.ProductFamily" />
+        <EntitySet Name="Suppliers" EntityType="ODataVersioningSample.V2.ViewModels.Supplier" />
+        <AssociationSet Name="ODataVersioningSample_V2_ViewModels_Product_Family_ODataVersioningSample_V2_ViewModels_ProductFamily_FamilyPartnerSet" Association="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_Product_Family_ODataVersioningSample_V2_ViewModels_ProductFamily_FamilyPartner">
+          <End Role="FamilyPartner" EntitySet="Products" />
+          <End Role="Family" EntitySet="ProductFamilies" />
+        </AssociationSet>
+        <AssociationSet Name="ODataVersioningSample_V2_ViewModels_ProductFamily_Supplier_ODataVersioningSample_V2_ViewModels_Supplier_SupplierPartnerSet" Association="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_ProductFamily_Supplier_ODataVersioningSample_V2_ViewModels_Supplier_SupplierPartner">
+          <End Role="SupplierPartner" EntitySet="ProductFamilies" />
+          <End Role="Supplier" EntitySet="Suppliers" />
+        </AssociationSet>
+        <AssociationSet Name="ODataVersioningSample_V2_ViewModels_ProductFamily_Products_ODataVersioningSample_V2_ViewModels_Product_ProductsPartnerSet" Association="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_ProductFamily_Products_ODataVersioningSample_V2_ViewModels_Product_ProductsPartner">
+          <End Role="ProductsPartner" EntitySet="ProductFamilies" />
+          <End Role="Products" EntitySet="Products" />
+        </AssociationSet>
+        <AssociationSet Name="ODataVersioningSample_V2_ViewModels_Supplier_ProductFamilies_ODataVersioningSample_V2_ViewModels_ProductFamily_ProductFamiliesPartnerSet" Association="ODataVersioningSample.V2.ViewModels.ODataVersioningSample_V2_ViewModels_Supplier_ProductFamilies_ODataVersioningSample_V2_ViewModels_ProductFamily_ProductFamiliesPartner">
+          <End Role="ProductFamiliesPartner" EntitySet="Suppliers" />
+          <End Role="ProductFamilies" EntitySet="ProductFamilies" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

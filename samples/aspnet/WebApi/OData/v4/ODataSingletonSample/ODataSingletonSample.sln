@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataSingletonSample", "ODataSingletonSample\ODataSingletonSample.csproj", "{71F1321C-DD41-4AF5-A24D-3DA305261D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataSingletonSample.Client", "ODataSingletonSample.Client\ODataSingletonSample.Client.csproj", "{65CF4366-75A3-438D-B547-9A3794A3A496}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{141AF4CD-63A4-4424-B6FF-CBD5E036C34E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71F1321C-DD41-4AF5-A24D-3DA305261D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F1321C-DD41-4AF5-A24D-3DA305261D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F1321C-DD41-4AF5-A24D-3DA305261D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F1321C-DD41-4AF5-A24D-3DA305261D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CF4366-75A3-438D-B547-9A3794A3A496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CF4366-75A3-438D-B547-9A3794A3A496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CF4366-75A3-438D-B547-9A3794A3A496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CF4366-75A3-438D-B547-9A3794A3A496}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

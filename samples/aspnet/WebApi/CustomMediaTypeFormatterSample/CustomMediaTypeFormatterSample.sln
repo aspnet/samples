@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3FFBBD4C-5D2D-42A5-ADF2-05D791366A19}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMediaTypeFormatter", "CustomMediaTypeFormatter\CustomMediaTypeFormatter.csproj", "{97E83949-4421-46EF-B26C-77724A3D5719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A57CC1C3-F596-4537-8D8B-B71C7172EB13}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{B2BFF995-B705-4EF3-BB09-7749D8E7DC88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97E83949-4421-46EF-B26C-77724A3D5719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E83949-4421-46EF-B26C-77724A3D5719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E83949-4421-46EF-B26C-77724A3D5719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E83949-4421-46EF-B26C-77724A3D5719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BFF995-B705-4EF3-BB09-7749D8E7DC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BFF995-B705-4EF3-BB09-7749D8E7DC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BFF995-B705-4EF3-BB09-7749D8E7DC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BFF995-B705-4EF3-BB09-7749D8E7DC88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

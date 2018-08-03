@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EnumSample.Models.MyData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (Model != null && Model.Count() > 0)
+{
+  <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Enum1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enum2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlagsEnum)
+        </th>
+        <th></th>
+    </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enum1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enum2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlagsEnum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+  }
+  </table>
+}

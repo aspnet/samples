@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataCompositeKeySample", "ODataCompositeKeySample\ODataCompositeKeySample.csproj", "{25E736E6-4E85-4103-9233-93C956D81149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataCompositeKeySample.Tests", "ODataCompositeKeySample.Tests\ODataCompositeKeySample.Tests.csproj", "{6EE70915-895F-4BA2-AA42-841151599BC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{83D864FF-C9FA-4658-A37A-322848B4DC1F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98712553-2B4E-4793-9F9A-E126A4C4C0E9}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25E736E6-4E85-4103-9233-93C956D81149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E736E6-4E85-4103-9233-93C956D81149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E736E6-4E85-4103-9233-93C956D81149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E736E6-4E85-4103-9233-93C956D81149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE70915-895F-4BA2-AA42-841151599BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE70915-895F-4BA2-AA42-841151599BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE70915-895F-4BA2-AA42-841151599BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE70915-895F-4BA2-AA42-841151599BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

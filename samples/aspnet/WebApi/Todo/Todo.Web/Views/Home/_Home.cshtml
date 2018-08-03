@@ -1,0 +1,33 @@
+﻿<!-- ko with: home -->
+<div data-bind="visible: loading">Loading...</div>
+<div id="todoPanel" data-bind="visible: !loading()">
+    <button class="btn btn-default" data-bind="click: addTodoList">Add Todo list</button>
+
+    <div id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
+        <div class="todoList">
+            <div class="header">
+                <form data-bind="validate: true">
+                    <input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
+                </form>
+            </div>
+
+            <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
+
+            <ul data-bind="foreach: todos">
+                <li>
+                    <input type="checkbox" data-bind="checked: isDone" />
+                    <input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
+                    <a href="#" data-bind="click: $parent.deleteTodo">X</a>
+                    <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+                </li>
+            </ul>
+
+            <form data-bind="submit: addTodo">
+                <input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
+            </form>
+
+            <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

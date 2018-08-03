@@ -1,0 +1,88 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="3.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="ODataService.Models" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="ReleaseDate" Type="Edm.DateTime" />
+        <Property Name="SupportedUntil" Type="Edm.DateTime" />
+        <NavigationProperty Name="Family" Relationship="ODataService.Models.ODataService_Models_Product_Family_ODataService_Models_ProductFamily_FamilyPartner" ToRole="Family" FromRole="FamilyPartner" />
+      </EntityType>
+      <EntityType Name="RatedProduct" BaseType="ODataService.Models.Product">
+        <Property Name="Rating" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="ProductFamily">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <NavigationProperty Name="Supplier" Relationship="ODataService.Models.ODataService_Models_ProductFamily_Supplier_ODataService_Models_Supplier_SupplierPartner" ToRole="Supplier" FromRole="SupplierPartner" />
+        <NavigationProperty Name="Products" Relationship="ODataService.Models.ODataService_Models_ProductFamily_Products_ODataService_Models_Product_ProductsPartner" ToRole="Products" FromRole="ProductsPartner" />
+      </EntityType>
+      <EntityType Name="Supplier">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Address" Type="ODataService.Models.Address" />
+        <NavigationProperty Name="ProductFamilies" Relationship="ODataService.Models.ODataService_Models_Supplier_ProductFamilies_ODataService_Models_ProductFamily_ProductFamiliesPartner" ToRole="ProductFamilies" FromRole="ProductFamiliesPartner" />
+      </EntityType>
+      <ComplexType Name="Address">
+        <Property Name="Street" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="ZipCode" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+      </ComplexType>
+      <Association Name="ODataService_Models_Product_Family_ODataService_Models_ProductFamily_FamilyPartner">
+        <End Type="ODataService.Models.ProductFamily" Role="Family" Multiplicity="0..1" />
+        <End Type="ODataService.Models.Product" Role="FamilyPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataService_Models_ProductFamily_Supplier_ODataService_Models_Supplier_SupplierPartner">
+        <End Type="ODataService.Models.Supplier" Role="Supplier" Multiplicity="0..1" />
+        <End Type="ODataService.Models.ProductFamily" Role="SupplierPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataService_Models_ProductFamily_Products_ODataService_Models_Product_ProductsPartner">
+        <End Type="ODataService.Models.Product" Role="Products" Multiplicity="*" />
+        <End Type="ODataService.Models.ProductFamily" Role="ProductsPartner" Multiplicity="0..1" />
+      </Association>
+      <Association Name="ODataService_Models_Supplier_ProductFamilies_ODataService_Models_ProductFamily_ProductFamiliesPartner">
+        <End Type="ODataService.Models.ProductFamily" Role="ProductFamilies" Multiplicity="*" />
+        <End Type="ODataService.Models.Supplier" Role="ProductFamiliesPartner" Multiplicity="0..1" />
+      </Association>
+    </Schema>
+    <Schema Namespace="Default" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="Container" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Products" EntityType="ODataService.Models.Product" />
+        <EntitySet Name="ProductFamilies" EntityType="ODataService.Models.ProductFamily" />
+        <EntitySet Name="Suppliers" EntityType="ODataService.Models.Supplier" />
+        <FunctionImport Name="CreateProduct" ReturnType="Edm.Int32" IsBindable="true" m:IsAlwaysBindable="true">
+          <Parameter Name="bindingParameter" Type="ODataService.Models.ProductFamily" />
+          <Parameter Name="Name" Type="Edm.String" FixedLength="false" Unicode="false" />
+        </FunctionImport>
+        <AssociationSet Name="ODataService_Models_Product_Family_ODataService_Models_ProductFamily_FamilyPartnerSet" Association="ODataService.Models.ODataService_Models_Product_Family_ODataService_Models_ProductFamily_FamilyPartner">
+          <End Role="FamilyPartner" EntitySet="Products" />
+          <End Role="Family" EntitySet="ProductFamilies" />
+        </AssociationSet>
+        <AssociationSet Name="ODataService_Models_ProductFamily_Supplier_ODataService_Models_Supplier_SupplierPartnerSet" Association="ODataService.Models.ODataService_Models_ProductFamily_Supplier_ODataService_Models_Supplier_SupplierPartner">
+          <End Role="SupplierPartner" EntitySet="ProductFamilies" />
+          <End Role="Supplier" EntitySet="Suppliers" />
+        </AssociationSet>
+        <AssociationSet Name="ODataService_Models_ProductFamily_Products_ODataService_Models_Product_ProductsPartnerSet" Association="ODataService.Models.ODataService_Models_ProductFamily_Products_ODataService_Models_Product_ProductsPartner">
+          <End Role="ProductsPartner" EntitySet="ProductFamilies" />
+          <End Role="Products" EntitySet="Products" />
+        </AssociationSet>
+        <AssociationSet Name="ODataService_Models_Supplier_ProductFamilies_ODataService_Models_ProductFamily_ProductFamiliesPartnerSet" Association="ODataService.Models.ODataService_Models_Supplier_ProductFamilies_ODataService_Models_ProductFamily_ProductFamiliesPartner">
+          <End Role="ProductFamiliesPartner" EntitySet="Suppliers" />
+          <End Role="ProductFamilies" EntitySet="ProductFamilies" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

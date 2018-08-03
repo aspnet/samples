@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataAuthorizationQueryValidatorSample", "ODataAuthorizationQueryValidatorSample\ODataAuthorizationQueryValidatorSample.csproj", "{2B1BD017-8458-4428-A056-16479F6C3E1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{89C7AFE7-3190-4D1F-B5B4-3D3F4FF60DC5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataAuthorizationQueryValidatorSample.Client", "ODataAuthorizationQueryValidatorSample.Client\ODataAuthorizationQueryValidatorSample.Client.csproj", "{E09E297A-E1ED-4066-B7EA-E38F94602447}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B1BD017-8458-4428-A056-16479F6C3E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1BD017-8458-4428-A056-16479F6C3E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1BD017-8458-4428-A056-16479F6C3E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1BD017-8458-4428-A056-16479F6C3E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E09E297A-E1ED-4066-B7EA-E38F94602447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E09E297A-E1ED-4066-B7EA-E38F94602447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E09E297A-E1ED-4066-B7EA-E38F94602447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E09E297A-E1ED-4066-B7EA-E38F94602447}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Movies</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Title</th><th>Due Date</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+            </thead>
+            <tbody data-bind="foreach: movies">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: title"></td>
+                    <td data-bind="text: dueDate"></td>
+                    <td><input type="button" value="Check Out" data-bind="click: checkout, enable: checkoutUrl" /></td>
+                    <td><input type="button" value="Return" data-bind="click: returnMovie, enable: returnMovieUrl" /></td>
+                    <td><input type="checkbox" data-bind="checked: selected" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <input type="button" value="Check Out Selected" data-bind="click: checkoutMany" />
+    </div>
+    <div>
+        <input type="text" data-bind="value: title" />
+        <input type="button" value="Add Movie" data-bind="click: createMovie" />
+    </div>
+    <div>
+        <p data-bind="visible: errorMessage">Error: <span data-bind="text: errorMessage"></span></p>
+    </div>
+    <script src="Scripts/jquery-2.1.0.js"></script>
+    <script src="Scripts/knockout-3.0.0.js"></script>
+    <script src="Scripts/movies.js"></script>
+</body>
+</html>

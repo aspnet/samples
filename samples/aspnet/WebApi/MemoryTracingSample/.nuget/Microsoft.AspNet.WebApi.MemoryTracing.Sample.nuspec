@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-16"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebApi.MemoryTracing.Sample</id>
+    <version>1.1.0-rtm-140110</version>
+    <title>Microsoft ASP.NET Web API Memory Tracing Sample</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The ASP.NET Web API Trace installs a memory trace recorder and an MVC view to display trace history.</description>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi" version="5.1.0" />
+      <dependency id="Microsoft.AspNet.Mvc" version="5.1.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" />
+    </frameworkAssemblies>
+    <language>en-US</language>
+    <tags>Microsoft AspNet WebApi AspNetWebApi Tracing MemoryTracing</tags>
+  </metadata>
+  <files>
+    <file src="Areas\**\*.*" target="content\Areas" />
+  </files>
+</package>

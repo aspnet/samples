@@ -1,0 +1,78 @@
+﻿body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+#query {
+    width: 80%;
+}
+
+#previousButton,#nextButton {
+    visibility: hidden;
+    height: 60px;
+}
+
+#previousButton {
+    float: left;
+}
+
+#nextButton {
+    float: right;
+}
+
+#pageCounter {
+    visibility: hidden;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#idCol {
+    width: 6%;
+}
+
+#titleCol {
+    width: 46%;
+}
+
+#genreCol {
+    width: 20%;
+}
+
+#releaseYearCol {
+    width: 13%;
+}
+
+#ratingCol {
+    width: 7%;
+}
+
+#popularityCol {
+    width: 8%;
+}
+
+th {
+    font-size: 15px;
+    text-align: left;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+}
+
+td {
+    padding: 9px 8px 0;
+}
+

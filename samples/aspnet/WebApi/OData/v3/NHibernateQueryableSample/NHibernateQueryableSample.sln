@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Web.Http.OData.NHibernate", "System.Web.Http.OData.NHibernate\System.Web.Http.OData.NHibernate.csproj", "{E6F57423-0D2C-4055-B5F0-4E49430A2970}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7CCA2288-0B65-4076-8C35-7928A432A56F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateQueryableSample", "NHibernateQueryableSample\NHibernateQueryableSample.csproj", "{F2FE658C-6AF0-4288-A8DD-7097A42014EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FD32ECEB-4A54-4EC1-8A09-B1184A20B32C}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6F57423-0D2C-4055-B5F0-4E49430A2970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F57423-0D2C-4055-B5F0-4E49430A2970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F57423-0D2C-4055-B5F0-4E49430A2970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F57423-0D2C-4055-B5F0-4E49430A2970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2FE658C-6AF0-4288-A8DD-7097A42014EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FE658C-6AF0-4288-A8DD-7097A42014EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FE658C-6AF0-4288-A8DD-7097A42014EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FE658C-6AF0-4288-A8DD-7097A42014EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

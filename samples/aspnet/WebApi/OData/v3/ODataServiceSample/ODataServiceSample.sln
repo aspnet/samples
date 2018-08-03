@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30418.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataService", "ODataService\ODataService.csproj", "{4E7C7608-EB02-4861-9282-D039338C4196}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C91481F8-D6E5-419D-BF82-64490C39B493}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56DE6158-F401-473F-8A0E-D778692BA99C}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataClient", "ODataClient\ODataClient.csproj", "{01452BBE-C599-47C9-BF8F-94ADE1DDE820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataService.WebHost", "ODataService.WebHost\ODataService.WebHost.csproj", "{5C1F8026-6C4A-43A2-99CA-9584CC4F5C1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataService.SelfHost", "ODataService.SelfHost\ODataService.SelfHost.csproj", "{17DBEDA7-6A0F-4833-91EC-51DF8AE3EECF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E7C7608-EB02-4861-9282-D039338C4196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E7C7608-EB02-4861-9282-D039338C4196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E7C7608-EB02-4861-9282-D039338C4196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E7C7608-EB02-4861-9282-D039338C4196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01452BBE-C599-47C9-BF8F-94ADE1DDE820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01452BBE-C599-47C9-BF8F-94ADE1DDE820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01452BBE-C599-47C9-BF8F-94ADE1DDE820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01452BBE-C599-47C9-BF8F-94ADE1DDE820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1F8026-6C4A-43A2-99CA-9584CC4F5C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1F8026-6C4A-43A2-99CA-9584CC4F5C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1F8026-6C4A-43A2-99CA-9584CC4F5C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1F8026-6C4A-43A2-99CA-9584CC4F5C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17DBEDA7-6A0F-4833-91EC-51DF8AE3EECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DBEDA7-6A0F-4833-91EC-51DF8AE3EECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DBEDA7-6A0F-4833-91EC-51DF8AE3EECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DBEDA7-6A0F-4833-91EC-51DF8AE3EECF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

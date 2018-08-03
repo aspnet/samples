@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+    <title>Find Nearest Attraction</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script charset="UTF-8" type="text/javascript" 
+        src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.3&mkt=en-us">
+    </script>
+    <script type="text/javascript">
+        function search() {
+            var lat = $('#latitude').val();
+            var long = $('#longitude').val();
+
+            $.ajax({
+                url: "api/Attractions/?longitude=" + long + "&latitude=" + lat,
+                type: "GET",
+                success: function (data) {
+                    if (data == null) {
+                        $('#attractionName').html("No attractions to search");
+                    }
+                    else {
+                        $('#attractionName').html("You should visit " + data.Name);
+                        displayMap(data.Location.Geography.WellKnownText, data.Name);
+                    }
+                }
+            });
+        }
+
+        function displayMap(coordinateString, name) {
+            // WellKnownText is in format 'POINT (<longitude>, <latitude>)'
+            coordinateString = coordinateString.replace("POINT (", "").replace(")", "");
+            var long = coordinateString.substring(0, coordinateString.indexOf(" "));
+            var lat = coordinateString.substring(coordinateString.indexOf(" ") + 1);
+
+            // Show map centered on nearest attraction
+            var map = new VEMap('myMap');
+            map.LoadMap(new VELatLong(lat, long), 15, VEMapStyle.Aerial);
+
+            // Add a pin for the attraction
+            var pin = new VEShape(VEShapeType.Pushpin, new VELatLong(lat, long));
+            pin.SetTitle(name);
+            map.AddShape(pin);
+        }
+    </script>
+</head>
+<body>
+    <h1>Find the Closest Tourist Attraction</h1>
+    <div>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" size="10" />
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" size="10" />
+        <input type="button" value="Search" onclick="search();" />
+    </div>
+    <p id="attractionName"></p>
+    <div id='myMap' style="position: absolute; width: 400px; height: 400px;"></div>
+</body>
+</html>

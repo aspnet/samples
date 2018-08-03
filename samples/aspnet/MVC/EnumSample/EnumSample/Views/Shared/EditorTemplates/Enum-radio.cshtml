@@ -1,0 +1,24 @@
+﻿@model Enum
+
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    // Provide radio buttons for current Enum value
+    string name = ViewData.ModelMetadata.PropertyName;
+    string id = Html.IdForModel().ToString();
+    int itemNum = 0;
+    
+    foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+    {
+        string myId = id + itemNum++.ToString();
+        string myChecked = item.Selected ? "checked" : null;
+
+        <label class="radio-inline">
+            <input type="radio" id="@(myId)" name="@(name)" value="@(item.Value)" checked="@(myChecked)" /> @(item.Text)
+        </label>
+    }
+}
+else
+{
+    // This Enum type is not supported.  Fall back to a text box.
+    @Html.TextBoxFor(model => model)
+}

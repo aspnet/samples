@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ROOT_PROJECT_NAMESPACE.Areas.Trace.Models.RequestTrace>
+
+@{
+    ViewBag.Title = "ASP.NET WebApi Trace Group Details";
+    var requestCount = @Model.Count();
+    var firstRequest = Model.FirstOrDefault();
+}
+
+<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+        @if (firstRequest != null)
+        {
+            <h2>@requestCount requests were made to @firstRequest.Method @firstRequest.Uri</h2>
+            
+            <p>@Html.ActionLink("Trace Index", "Index");</p>
+        }
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+
+       <table border="1px"> 
+       <thead>
+            <tr>
+                <th>Status</th>
+                <th>Reason</th> 
+                <th>Method </th> 
+                <th style="text-align:center;margin:0">Uri</th> 
+                <th>Time</th> 
+                <th>Details</th>  
+            </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var request in Model)
+        {
+            if (request.Status >= 400) {
+            <tr style="background:#FFC0CB;"> 
+                <td style="text-align:center;margin:0">@request.Status</td>
+                <td>@request.Reason</td>
+                <td>@request.Method</td>     
+                <td>@request.Uri</td>  
+                <td>@request.Timestamp.ToLocalTime().ToString("T")</td>    
+                <td>@Html.ActionLink("Traces...", "TraceDetails", new { id = request.Id })</td> 
+            </tr>
+            } else {
+            <tr> 
+                <td style="text-align:center;margin:0">@request.Status</td>
+                <td>@request.Reason</td>
+                <td>@request.Method</td>     
+                <td>@request.Uri</td>  
+                <td>@request.Timestamp.ToLocalTime().ToString("T")</td>    
+                <td>@Html.ActionLink("Traces...", "TraceDetails", new { id = request.Id })</td> 
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    </section>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    <script>
+        $(function () {
+            $("table thead").addClass("ui-widget-header");
+            $("table tbody").addClass("ui-widget-content");
+        });
+    </script>
+}
+
+

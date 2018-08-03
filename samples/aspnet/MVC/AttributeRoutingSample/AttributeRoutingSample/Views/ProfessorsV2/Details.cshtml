@@ -1,0 +1,38 @@
+﻿@model AttributeRoutingSample.Models.Professor
+
+@{
+    ViewBag.Title = "Professors v2 Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Professor</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses)
+        </dt>
+
+        <dd>
+            @for (int i = 0; i < Model.Courses.Count; i++)
+            {
+                @Html.ActionLink(Model.Courses[i].Name, "Details", "Courses", new { id = Model.Courses[i].Id }, null)
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
