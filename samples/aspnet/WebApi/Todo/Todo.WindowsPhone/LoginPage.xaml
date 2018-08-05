@@ -1,0 +1,84 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Todo.WindowsPhone.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="Todo.WindowsPhone">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Login">
+                <Grid>
+                    <StackPanel Margin="0,20">
+                        <ItemsControl x:Name="LoginErrorList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Red" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBlock Text="Username:" />
+                        <TextBox x:Name="UsernameTextBox" />
+                        <TextBlock Text="Password:" />
+                        <PasswordBox x:Name="UserPasswordBox" />
+                        <Button x:Name="LoginButton" Content="Login" Click="LoginButton_Click" />
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem x:Name="ExternalLoginsPivotItem" Header="Connect">
+                <Grid>
+                    <StackPanel x:Name="ExternalLoginButtons" Margin="0,20" >
+                        <ItemsControl x:Name="ExternalLoginsItemsControl">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Template="{StaticResource ButtonNoChrome}" DataContext="{Binding}" Click="ExternalLoginButton_Click" toolkit:TiltEffect.IsTiltEnabled="True">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Icon}" Margin="0,8,0,0"/>
+                                            <TextBlock Text="{Binding Provider}" VerticalAlignment="Center" Style="{StaticResource PhoneTextLargeStyle}" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Header="Sign Up">
+                <Grid>
+                    <StackPanel>
+                        <ItemsControl x:Name="SignUpErrorList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="Red" TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBlock Text="Username" />
+                        <TextBox x:Name="NewUsernameTextBox" />
+                        <TextBlock Text="Password" />
+                        <PasswordBox x:Name="NewPasswordBox" />
+                        <TextBlock Text="Confirm password" />
+                        <PasswordBox x:Name="ConfirmPasswordBox" />
+                        <Button x:Name="SignUpButton" Content="Sign Up" Click="SignUpButton_Click" />
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

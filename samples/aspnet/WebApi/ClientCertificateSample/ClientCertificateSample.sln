@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30425.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCertificateSample", "ClientCertificateSample.csproj", "{C1956541-28A1-41E1-A1D8-690F9400933F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C432B304-6FBF-4C1A-85B7-4284C3DE5BFD}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1956541-28A1-41E1-A1D8-690F9400933F}.Debug|x86.ActiveCfg = Debug|x86
+		{C1956541-28A1-41E1-A1D8-690F9400933F}.Debug|x86.Build.0 = Debug|x86
+		{C1956541-28A1-41E1-A1D8-690F9400933F}.Release|x86.ActiveCfg = Release|x86
+		{C1956541-28A1-41E1-A1D8-690F9400933F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

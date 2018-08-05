@@ -1,0 +1,104 @@
+﻿
+
+@model IEnumerable<ROOT_PROJECT_NAMESPACE.Areas.Trace.Models.TraceGroup>
+
+@{
+    ViewBag.Title = "ASP.NET WebApi Trace Index";
+    var groupCount = @Model.Count();
+}
+
+<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            @if (groupCount == 0) {
+                 <p>No WebApi requests have been received yet.</p>
+                 <p>Invoke any WebApi controller and refresh this page.</p>
+            } else {
+                 <p>@groupCount kind(s) of WebApi request have been received.</p>
+            }
+
+
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+
+       @if (groupCount != 0)
+       {
+       <table border="1px"> 
+       <thead>
+            <tr>
+                <th>Method </th>
+                <th style="text-align:center;margin:0">Uri</th> 
+                <th>Time</th> 
+                <th style="text-align:center;margin:0;padding:10px">Count</th> 
+                <th>Details</th>  
+            </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach (var traceGroup in Model)
+        {
+            var isError = traceGroup.RequestTraces.Any(r => r.Status >= 400);
+            if (isError)
+            {
+             <tr style="background:#FFC0CB;"> 
+                <td>@traceGroup.HttpMethod</td>     
+                <td>@traceGroup.Uri</td> 
+                <td>@traceGroup.RequestTraces[0].Timestamp.ToLocalTime().ToString("T")</td>   
+                <td style="text-align:right;margin:0">@traceGroup.RequestTraces.Count</td>
+                @if (traceGroup.RequestTraces.Count == 1)
+                {
+                    <td>@Html.ActionLink("Traces...", "TraceDetails", new { id = traceGroup.RequestTraces[0].Id })</td> 
+                }
+                else
+                {       
+                    <td>@Html.ActionLink("Details...", "GroupDetails", new { httpMethod = traceGroup.HttpMethod, path = traceGroup.Path })</td> 
+                }
+            </tr>
+            }
+            else
+            {
+            <tr> 
+                <td>@traceGroup.HttpMethod</td>     
+                <td>@traceGroup.Uri</td>
+                <td>@traceGroup.RequestTraces[0].Timestamp.ToLocalTime().ToString("T")</td>
+                <td style="text-align:right;margin:0">@traceGroup.RequestTraces.Count</td>
+                @if (traceGroup.RequestTraces.Count == 1)
+                {
+                    <td>@Html.ActionLink("Traces...", "TraceDetails", new { id = traceGroup.RequestTraces[0].Id })</td> 
+                }
+                else
+                {       
+                    <td>@Html.ActionLink("Details...", "GroupDetails", new { httpMethod = traceGroup.HttpMethod, path = traceGroup.Path })</td> 
+                }
+            </tr>
+            }
+
+        }
+        </tbody>
+    </table>
+       }
+       
+    </section>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    <script>
+        $(function () {
+            $("table thead").addClass("ui-widget-header");
+            $("table tbody").addClass("ui-widget-content");
+        });
+    </script>
+}
+

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemo", "ConsoleDemo\ConsoleDemo.csproj", "{467E6F34-35EE-4D92-9714-3F1B4E06A0AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtwManifestGenerator", "EtwManifestGenerator\EtwManifestGenerator.csproj", "{822B6344-1B91-4063-B96F-A34F5DFA5FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiEtwTracing", "WebApiEtwTracing\WebApiEtwTracing.csproj", "{41251D1A-0EC7-4C9C-9CB8-2D8D38E08E72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D809920E-17C4-4F16-BFA5-FF6037832C81}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\nuget.exe = .nuget\nuget.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B00F1AF-761F-4DF2-92AC-7D675E368909}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+		WebApiEtwTracing.man = WebApiEtwTracing.man
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{467E6F34-35EE-4D92-9714-3F1B4E06A0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467E6F34-35EE-4D92-9714-3F1B4E06A0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467E6F34-35EE-4D92-9714-3F1B4E06A0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467E6F34-35EE-4D92-9714-3F1B4E06A0AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822B6344-1B91-4063-B96F-A34F5DFA5FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822B6344-1B91-4063-B96F-A34F5DFA5FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822B6344-1B91-4063-B96F-A34F5DFA5FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822B6344-1B91-4063-B96F-A34F5DFA5FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41251D1A-0EC7-4C9C-9CB8-2D8D38E08E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41251D1A-0EC7-4C9C-9CB8-2D8D38E08E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41251D1A-0EC7-4C9C-9CB8-2D8D38E08E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41251D1A-0EC7-4C9C-9CB8-2D8D38E08E72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

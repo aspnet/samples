@@ -1,0 +1,50 @@
+<!-- 
+  This custom MSBuild targets file creates a task that prepares source files 
+  for inclusion in the output Nuget package.  After execution, all the C# files
+  in the SourceFiles item group will be copied into equivalent .pp files to the
+  given OutputPath.  The namespace name will also be converted to the macro form
+  Nuget requires when installing these files into a new Web API project.
+ -->
+
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="ConvertToNuGetTransformationFiles" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <OutputPath ParameterType="System.String" Required="true" />
+      <OriginalNamespaceToken ParameterType="System.String" Required="true" />
+      <ReplacementNamespaceToken ParameterType="System.String" Required="true" />
+      <SourceFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+          foreach (var sourceFile in SourceFiles) {
+            string sourceFilePath = sourceFile.GetMetadata("FullPath");
+            string relativeDirectory = sourceFile.GetMetadata("RelativeDir");
+            string fileName = sourceFile.GetMetadata("Filename");
+            string extension = sourceFile.GetMetadata("Extension");
+            string destinationDirectory = OutputPath + relativeDirectory;
+            string destinationFilePath = destinationDirectory + fileName + extension;
+            
+            DirectoryInfo dir = new DirectoryInfo(destinationDirectory);
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+            
+            string content = File.ReadAllText(sourceFilePath);
+            
+            // Do the transformation for source code and config files only
+            if (extension.StartsWith(".cs"))
+            {
+              destinationFilePath += ".pp";
+              content = content.Replace(OriginalNamespaceToken, ReplacementNamespaceToken);
+            }
+
+            File.WriteAllText(destinationFilePath, content);
+          }
+          return true;
+          ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

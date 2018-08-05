@@ -1,0 +1,20 @@
+﻿@model BasicAuthentication.Models.Home.IndexModel
+@using System.Security.Claims
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <p>Hello, @Model.UserName.</p>
+    <p>Claims:</p>
+    <ul>
+        @foreach (Claim claim in Model.Claims)
+        {
+            <li>@claim.Type => @claim.Value</li>
+        }
+    </ul>
+</body>
+</html>

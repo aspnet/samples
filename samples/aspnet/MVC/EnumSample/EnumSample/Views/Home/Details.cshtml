@@ -1,0 +1,42 @@
+﻿@model EnumSample.Models.MyData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MyData</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Enum1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enum1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enum2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enum2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlagsEnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlagsEnum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

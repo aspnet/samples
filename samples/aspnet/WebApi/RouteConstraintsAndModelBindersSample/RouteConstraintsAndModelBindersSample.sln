@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30410.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteConstraintsAndModelBindersSample.Server", "RouteConstraintsAndModelBindersSample.Server\RouteConstraintsAndModelBindersSample.Server.csproj", "{A85B6083-CAB0-4DD2-8249-FCE3C1246025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteConstraintsAndModelBindersSample.Client", "RouteConstraintsAndModelBindersSample.Client\RouteConstraintsAndModelBindersSample.Client.csproj", "{0395F919-2303-44AF-8D0B-58F1AEDD120A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1923D736-3765-4CD9-99C7-EA03444B98D5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A57CC1C3-F596-4537-8D8B-B71C7172EB13}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A85B6083-CAB0-4DD2-8249-FCE3C1246025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85B6083-CAB0-4DD2-8249-FCE3C1246025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85B6083-CAB0-4DD2-8249-FCE3C1246025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85B6083-CAB0-4DD2-8249-FCE3C1246025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0395F919-2303-44AF-8D0B-58F1AEDD120A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0395F919-2303-44AF-8D0B-58F1AEDD120A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0395F919-2303-44AF-8D0B-58F1AEDD120A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0395F919-2303-44AF-8D0B-58F1AEDD120A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

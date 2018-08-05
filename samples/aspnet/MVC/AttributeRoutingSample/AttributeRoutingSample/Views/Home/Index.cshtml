@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "MVC Attribute Routing";
+}
+
+<div class="jumbotron">
+    <h1>Attribute Routing</h1>
+    <p class="lead">This sample shows how to configure an MVC application with Attribute Routes.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Basic Attribute Routing</h2>
+        <p>The @Html.RouteLink("Students", "GetAllStudentsView") controller shows some basic attribute routing features including routes on actions and routes at the controller level. See StudentsController.cs</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Mixed Routing</h2>
+        <p>The @Html.ActionLink("Courses", "Index", "Courses") controller demonstrates routing with both traditional routes and attribute routes in the same controller. See CoursesController.cs</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Attribute Routing with Areas</h2>
+        <p>The @Html.ActionLink("About", "Index", "About", new { area = "Help" }, null) controllers show attribute routing with an Area. See AboutController.cs</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Advanced Attribute Routing</h2>
+        <p>
+        The @Html.RouteLink("Professors v1", "ProfessorsV1", new { action = "Index", version = 1 }) and 
+        @Html.RouteLink("Professors v2", "ProfessorsV2", new { action = "Index", version = 2 }) controllers 
+        show advanced attribute routing, including custom contraints and a custom route factory attribute. See ProfessorsV1Controller.cs and ProfessorsV2Controller.cs</p>
+    </div>
+</div>

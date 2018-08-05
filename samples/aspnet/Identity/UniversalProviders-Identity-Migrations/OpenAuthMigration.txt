@@ -1,0 +1,11 @@
+INSERT INTO AspNetUserLogins(UserId,LoginProvider,ProviderKey)
+SELECT AspNetUsers.Id,UsersOpenAuthAccounts.ProviderName,UsersOpenAuthAccounts.ProviderUserId
+FROM UsersOpenAuthAccounts
+LEFT OUTER JOIN AspNetUsers ON AspNetUsers.UserName = UsersOpenAuthAccounts.MembershipUserName;
+
+UPDATE AspNetUsers 
+SET PasswordHash = CASE WHEN UsersOpenAuthData.HasLocalPassword = null
+						THEN ''
+						END
+FROM UsersOpenAuthData 
+JOIN AspNetUsers ON (UsersOpenAuthData.MembershipUserName = AspNetUsers.UserName);

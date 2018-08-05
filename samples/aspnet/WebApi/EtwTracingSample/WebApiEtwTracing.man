@@ -1,0 +1,97 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events xmlns="http://schemas.microsoft.com/win/2004/08/events">
+<provider name="WebApi" guid="{fc7bbb67-1b01-557b-5e0e-c1c4e40b6a24}" resourceFileName="C:\dd\AspSamples\Samples\WebApi\EtwTracingSample\bin\Debug\WebApiEtwTracing.dll" messageFileName="C:\dd\AspSamples\Samples\WebApi\EtwTracingSample\bin\Debug\WebApiEtwTracing.dll" symbol="WebApi">
+ <tasks>
+  <task name="Request" message="$(string.task_Request)" value="1"/>
+  <task name="Response" message="$(string.task_Response)" value="2"/>
+  <task name="OpBegin" message="$(string.task_OpBegin)" value="3"/>
+  <task name="OpEnd" message="$(string.task_OpEnd)" value="4"/>
+  <task name="OpTrace" message="$(string.task_OpTrace)" value="5"/>
+  <task name="Warning" message="$(string.task_Warning)" value="6"/>
+  <task name="Error" message="$(string.task_Error)" value="7"/>
+ </tasks>
+ <opcodes>
+ </opcodes>
+ <keywords>
+  <keyword name="Diagnostic" message="$(string.keyword_Diagnostic)" mask="0x1"/>
+  <keyword name="Session3" message="$(string.keyword_Session3)" mask="0x100000000000"/>
+  <keyword name="Session2" message="$(string.keyword_Session2)" mask="0x200000000000"/>
+  <keyword name="Session1" message="$(string.keyword_Session1)" mask="0x400000000000"/>
+  <keyword name="Session0" message="$(string.keyword_Session0)" mask="0x800000000000"/>
+ </keywords>
+ <events>
+  <event value="1" version="0" level="win:Informational" symbol="Request" message="$(string.event_Request)" keywords="Diagnostic" opcode="win:Receive" task="Request" template="RequestArgs"/>
+  <event value="2" version="0" level="win:Informational" symbol="Response" message="$(string.event_Response)" keywords="Diagnostic" opcode="win:Reply" task="Response" template="ResponseArgs"/>
+  <event value="3" version="0" level="win:Informational" symbol="OpBegin" message="$(string.event_OpBegin)" keywords="Diagnostic" opcode="win:Start" task="OpBegin" template="OpBeginArgs"/>
+  <event value="4" version="0" level="win:Informational" symbol="OpEnd" message="$(string.event_OpEnd)" keywords="Diagnostic" opcode="win:Stop" task="OpEnd" template="OpEndArgs"/>
+  <event value="5" version="0" level="win:Informational" symbol="OpTrace" message="$(string.event_OpTrace)" keywords="Diagnostic" task="OpTrace" template="OpTraceArgs"/>
+  <event value="6" version="0" level="win:Warning" symbol="Warning" message="$(string.event_Warning)" keywords="Diagnostic" task="Warning" template="WarningArgs"/>
+  <event value="7" version="0" level="win:Error" symbol="Error" message="$(string.event_Error)" keywords="Diagnostic" task="Error" template="ErrorArgs"/>
+ </events>
+ <templates>
+  <template tid="RequestArgs">
+   <data name="uri" inType="win:UnicodeString"/>
+   <data name="method" inType="win:UnicodeString"/>
+  </template>
+  <template tid="ResponseArgs">
+   <data name="uri" inType="win:UnicodeString"/>
+   <data name="method" inType="win:UnicodeString"/>
+   <data name="statusCode" inType="win:Int32"/>
+   <data name="status" inType="win:UnicodeString"/>
+  </template>
+  <template tid="OpBeginArgs">
+   <data name="name" inType="win:UnicodeString"/>
+   <data name="operation" inType="win:UnicodeString"/>
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+  <template tid="OpEndArgs">
+   <data name="name" inType="win:UnicodeString"/>
+   <data name="operation" inType="win:UnicodeString"/>
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+  <template tid="OpTraceArgs">
+   <data name="name" inType="win:UnicodeString"/>
+   <data name="operation" inType="win:UnicodeString"/>
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+  <template tid="WarningArgs">
+   <data name="name" inType="win:UnicodeString"/>
+   <data name="operation" inType="win:UnicodeString"/>
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+  <template tid="ErrorArgs">
+   <data name="name" inType="win:UnicodeString"/>
+   <data name="operation" inType="win:UnicodeString"/>
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+ </templates>
+</provider>
+</events>
+</instrumentation>
+<localization>
+ <resources culture="en-US">
+  <stringTable>
+   <string id="event_Error" value="Error from operation %1.%2: %3"/>
+   <string id="event_OpBegin" value="Starting operation %1.%2: %3"/>
+   <string id="event_OpEnd" value="Completed operation %1.%2: %3"/>
+   <string id="event_OpTrace" value="Trace of operation %1.%2: %3"/>
+   <string id="event_Request" value="Received %2 request %1"/>
+   <string id="event_Response" value="Sending [%3 : %4] response for %2 request %1"/>
+   <string id="event_Warning" value="Warning from operation %1.%2: %3"/>
+   <string id="keyword_Diagnostic" value="Diagnostic"/>
+   <string id="keyword_Session0" value="Session0"/>
+   <string id="keyword_Session1" value="Session1"/>
+   <string id="keyword_Session2" value="Session2"/>
+   <string id="keyword_Session3" value="Session3"/>
+   <string id="task_Error" value="Error"/>
+   <string id="task_OpBegin" value="OpBegin"/>
+   <string id="task_OpEnd" value="OpEnd"/>
+   <string id="task_OpTrace" value="OpTrace"/>
+   <string id="task_Request" value="Request"/>
+   <string id="task_Response" value="Response"/>
+   <string id="task_Warning" value="Warning"/>
+  </stringTable>
+ </resources>
+</localization>
+</instrumentationManifest>

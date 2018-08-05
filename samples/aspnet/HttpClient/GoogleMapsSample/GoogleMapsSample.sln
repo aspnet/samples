@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsSample", "GoogleMapsSample.csproj", "{D65351D3-05E0-4DAF-8FCC-92556DB2F073}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D695B023-48D1-40B5-8255-C3DECCB1308C}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Debug|x86.ActiveCfg = Debug|x86
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Debug|x86.Build.0 = Debug|x86
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Release|x86.ActiveCfg = Release|x86
+		{D65351D3-05E0-4DAF-8FCC-92556DB2F073}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

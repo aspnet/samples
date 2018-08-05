@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingTranslateSample", "BingTranslateSample.csproj", "{83C2627A-2EED-40EB-AFA3-99BF27029234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{99F89F46-A93E-462A-96A3-168BAC179178}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC8C1435-DBA8-4D8C-97EB-EE44A8F76C14}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Debug|x86.ActiveCfg = Debug|x86
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Debug|x86.Build.0 = Debug|x86
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Release|x86.ActiveCfg = Release|x86
+		{83C2627A-2EED-40EB-AFA3-99BF27029234}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
