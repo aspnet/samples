@@ -8,5 +8,4 @@ The sample automatically populates the Identity database with a sample user.
 
 To run the sample, first start the server; then run the client and press ENTER.
 
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
+

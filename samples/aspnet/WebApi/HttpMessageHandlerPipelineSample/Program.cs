@@ -18,7 +18,7 @@ namespace HttpMessageHandlerPipelineSample
     /// http://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx
     ///
     /// For more information about this and other samples, please see 
-    /// http://go.microsoft.com/fwlink/?LinkId=261487
+    /// 
     /// </summary>
     class Program
     {

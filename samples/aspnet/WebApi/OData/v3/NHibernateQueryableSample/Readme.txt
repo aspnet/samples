@@ -12,9 +12,3 @@ contains code for translating $orderby to HQL's orderby clause. The class NHiber
 for translating $filter to the corresponding HQL where clause.
 
 For more information about NHibernate, see http://nhforge.org/
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

@@ -42,9 +42,3 @@ public Person Get([FromODataUri] string firstName, [FromODataUri] string lastNam
 
 For a detailed description of this sample, please see 
 http://blogs.msdn.com/b/hongyes/archive/2013/02/06/asp-net-web-api-odata-support-composite-key.aspx
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

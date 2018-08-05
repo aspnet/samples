@@ -28,9 +28,3 @@ clients may choose to send and receive JSON or XML media types.
 The client exercises actions of the generated MyData controller. It sends and
 receives all data using the application/bson media type and associated
 formatter.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

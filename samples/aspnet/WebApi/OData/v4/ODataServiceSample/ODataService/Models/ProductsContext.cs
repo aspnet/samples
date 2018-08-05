@@ -13,7 +13,7 @@ namespace ODataService.Models
         public ProductsContext()
             : base("Products")
         {
-            //// Remove the following line after fixing https://aspnetwebstack.codeplex.com/workitem/1768
+            //// Temporary workaround
             this.Configuration.ProxyCreationEnabled = false;
         }
 

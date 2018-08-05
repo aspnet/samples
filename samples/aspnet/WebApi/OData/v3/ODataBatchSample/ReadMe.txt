@@ -9,10 +9,3 @@ latency and scalability of its service.
 
 For more information about request batching support check:
 http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx
-http://aspnetwebstack.codeplex.com/wikipage?title=Web%20API%20Request%20Batching&referringTitle=Specs
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

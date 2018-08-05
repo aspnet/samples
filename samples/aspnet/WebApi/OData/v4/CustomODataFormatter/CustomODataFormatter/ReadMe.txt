@@ -15,10 +15,3 @@ The sample has a custom entity type serializer, AnnotatingEntitySerializer, that
 by overriding the CreateEntry method. It defines a custom ODataSerializerProvider (CustomODataSerializerProvider) to 
 provide AnnotatingEntitySerializer instead of ODataEntityTypeSerializer. It then creates the OData formatters using this 
 serializer provider and uses those formatters in the configuration.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
-

@@ -11,9 +11,3 @@ In this sample, the Sample controller has two actions:
 
 For a detailed description of this sample, please see
 http://blogs.msdn.com/b/hongmeig1/archive/2012/05/11/how-to-access-clientcertificate-in-a-host-agnostic-manner.aspx
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

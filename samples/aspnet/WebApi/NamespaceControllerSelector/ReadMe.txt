@@ -5,9 +5,7 @@ This ASP.NET Web API sample shows how to support multiple API controllers with
 the same name in different namespaces.
 
 NOTE:
-This sample only works for conventional routing. Please take a look at the 
-following sample for attribute routing based versioning.
-http://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/RoutingConstraintsSample/ReadMe.txt
+This sample only works for conventional routing.
 
 For example, you could define two controllers named "ValuesController":
 

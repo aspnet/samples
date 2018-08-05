@@ -128,11 +128,3 @@ PerfView is an incredibly useful tool for analyzing CPU usage, call stacks,
 heaps, events, ASP.NET traffic, etc.  It is worth learning and using.
 Follow Vance Morrison's blogs and video tutorials to learn more at:
 http://blogs.msdn.com/b/vancem/archive/2011/12/28/publication-of-the-perfview-performance-analysis-tool.aspx
-
-
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

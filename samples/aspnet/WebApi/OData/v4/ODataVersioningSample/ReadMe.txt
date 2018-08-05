@@ -95,10 +95,3 @@ It demonstrates how to specify version in route, query string and header.
 The sample uses AutoMapper to simplify the mapping code between domain model and view model. For
 more information about AutoMapper, please see
 http://automapper.org/
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
-

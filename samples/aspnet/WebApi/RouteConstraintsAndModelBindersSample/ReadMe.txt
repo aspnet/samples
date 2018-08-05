@@ -44,12 +44,6 @@ In the folder RouteConstraintsAndModelBindersSample.Server\, please see
 - App_Start\WebApiConfig.cs and RouteConstraints\SegmentPrefixConstraints.cs for how to customize route constraints.
 - Controller\FruitsController.cs for how to use those route constraints and model binders.
 
-This sample is provided as part of the ASP.NET Web Stack sample repository at 
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
-
 
 Introduction to Matrix Parameters
 ---------------------------------

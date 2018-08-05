@@ -19,10 +19,3 @@ Actions:
                         : The V2 products service in V2 rely on the traditional convention 
 						: when selecting actions. 
 /odata/$metadata?v=2    : Access the V2 metadata with the V2 version query string
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
-

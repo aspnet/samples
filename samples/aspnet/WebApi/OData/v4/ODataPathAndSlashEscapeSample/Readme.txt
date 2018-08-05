@@ -13,9 +13,3 @@ But, this causes the Web API OData stack to return a 404 error (Not Found).
 
 As a workaround you could override the Parse method of DefaultODataPathHandler to escape the slash and backslash in string literals 
 before actually parsing them. This sample shows this apporach. 
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

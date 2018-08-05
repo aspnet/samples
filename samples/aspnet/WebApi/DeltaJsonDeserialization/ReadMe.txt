@@ -29,9 +29,3 @@ required to use this class, but use of the OData entity model and protocol is no
 to your project, run the following command at the NuGet Package Manager Console in Visual Studio:
 
 Install-Package Microsoft.AspNet.WebApi.OData
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

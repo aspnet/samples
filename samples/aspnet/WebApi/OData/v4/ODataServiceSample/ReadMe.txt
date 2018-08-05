@@ -42,9 +42,3 @@ to discover and consume OData Services exposed through ASP.NET Web API.
 
 For a detailed description of this sample, please see 
 http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

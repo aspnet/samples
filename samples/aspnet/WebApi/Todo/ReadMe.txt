@@ -45,9 +45,3 @@ provide the following app settings in your web application (i.e. in web.config o
 
 For a detailed description of this sample, please see
 http://go.microsoft.com/fwlink/?LinkId=356160
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

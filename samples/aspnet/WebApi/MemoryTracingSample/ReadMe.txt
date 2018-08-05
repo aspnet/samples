@@ -155,10 +155,3 @@ http://www.asp.net/web-api
 
 For more information about ITraceWriter and tracing in Web API refer to
 http://blogs.msdn.com/b/roncain/archive/2012/04/12/tracing-in-asp-net-web-api.aspx
-
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

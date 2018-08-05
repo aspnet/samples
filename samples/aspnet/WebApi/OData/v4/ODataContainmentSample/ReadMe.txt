@@ -13,9 +13,3 @@ It illustrates how to use containment within an OData service. Such as:
 7. Call a function that is bound to a collection of contained entities (GET ~/Accounts(1)/PayinPIs/Namespace.GetCount())
 
 It is a console application, just open the solution and hit F5 to run it.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at 
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

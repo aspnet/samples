@@ -18,10 +18,3 @@ These actions demonstrate several options for OData actions:
 * Actions bound to an entity
 * Actions bound to an entity collection
 * Unbound actions
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
-

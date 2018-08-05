@@ -39,8 +39,6 @@ namespace CustomModelBinderSample
                 // Search for all products having the word 'Contoso' in it's name. Notice that categories is specified
                 // as 'categories=' in query string and in this case the 'EmptyCollectionModelBinder' would create 
                 // an empty collection. So the search is for the word 'Contoso' in all categories.
-                // This also is a workaround for the following issue:
-                // https://aspnetwebstack.codeplex.com/workitem/2067
                 SendRequest("/api/products/search?categories=&searchterm=contoso");
 
                 // Provide a non existing category and expect that model state fails
@@ -56,7 +54,7 @@ namespace CustomModelBinderSample
             // and then wrap this into the custom implementation of collection model binder provider.
             // The idea here is that we are going to let the default model binder do the job of binding
             // for most of the scenarios and would only handle few cases where we want to change the
-            // default behavior(https://aspnetwebstack.codeplex.com/workitem/2067)
+            // default behavior
             List<ModelBinderProvider> providers = config.Services.GetModelBinderProviders().ToList();
 
             // Since the order of model binder providers in the list is important (performance being one of the reasons),

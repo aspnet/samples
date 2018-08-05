@@ -30,9 +30,3 @@ The steps are:
 1. Create a customized ODataPathRouteConstraint, which allows to set EdmModel property, before Match is called.
 2. Create a customized ODataRoute to override GetVirtualPath logic, and generate OData links correctly.
 3. Create a customized MapODataServiceRoute that takes a Func<HttpRequestMessage, IEdmModel> instead of an IEdmModel.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

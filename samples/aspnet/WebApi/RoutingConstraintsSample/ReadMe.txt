@@ -16,9 +16,3 @@ matching an integer value. The value of the allowed version for the constraint i
 attribute placed on each controller. When a request comes in, the header value of 'api-version' is matched
 against the expected version. This example uses a header but a constraint implementation could use any criteria
 to decided if the request is valid for the route.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

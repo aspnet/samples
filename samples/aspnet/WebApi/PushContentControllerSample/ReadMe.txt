@@ -19,9 +19,3 @@ In addition, check out these two for an HTML5 client using the EventSource API:
 http://www.strathweb.com/2012/05/native-html5-push-notifications-with-asp-net-web-api-and-knockout-js/
 and
 http://techbrij.com/1029/real-time-chart-html5-push-sse-asp-net-web-api
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

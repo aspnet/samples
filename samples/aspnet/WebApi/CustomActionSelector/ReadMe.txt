@@ -20,9 +20,3 @@ version.
 
 Finally, the BetaTestingBehaviorAttribute implements an action filter to record a response header tracking
 whether the standard action or the 'beta' version was invoked.
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

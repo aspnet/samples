@@ -16,7 +16,7 @@ namespace ValidationSample
     /// how to return error responses for invalid model states.
     /// 
     /// For more information about this and other samples, please see 
-    /// http://go.microsoft.com/fwlink/?LinkId=261487
+    /// 
     /// </summary>
     public class Program
     {

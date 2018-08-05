@@ -33,9 +33,3 @@ When running the sample, try typing the following coordinates into the HTML form
 
 For a detailed description of this sample, please see
 http://blogs.msdn.com/b/jasonz/archive/2012/07/23/my-favorite-features-entity-framework-code-first-and-asp-net-web-api.aspx
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

@@ -31,9 +31,3 @@ and a relayed GET request may look like this:
 
 For more information about curl, please see
 http://curl.haxx.se/
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487

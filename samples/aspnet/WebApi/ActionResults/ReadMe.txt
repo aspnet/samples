@@ -8,5 +8,4 @@ to a browser via Web API.
 To see the sample, run the website and click each of the links on the page that
 appears.
 
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
+

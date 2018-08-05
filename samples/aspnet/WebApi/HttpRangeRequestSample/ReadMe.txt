@@ -22,7 +22,7 @@ one range specified, e.g.
 
  Range: 0-9,90-99
 
-then the resulting ByteRangeStreamContent will contain a “multipart/byteranges” response carrying 
+then the resulting ByteRangeStreamContent will contain a ï¿½multipart/byterangesï¿½ response carrying 
 the set of ranges, e.g.
 
  Content-type: multipart/byteranges; boundary=THIS_STRING_SEPARATES
@@ -46,17 +46,11 @@ a 416 (Requested Range Not Satisfiable) with a Content-Range header indicating t
   Content-Range: bytes */26
 
 The ByteRangeStreamContent can also be used as part of scenarios serving conditional range requests containing an 
-If-Range header field meaning “send me the following range but only if the ETag matches; otherwise send me the 
-whole response.”
+If-Range header field meaning "send me the following range but only if the ETag matches; otherwise send me the 
+whole response."
 
 For a detailed description of HTTP/1.1 ranges, please see "Hypertext Transfer Protocol (HTTP/1.1) part 5: Range Requests",
 http://datatracker.ietf.org/doc/draft-ietf-httpbis-p5-range/
 
 For a detailed description of this sample, please see
 http://blogs.msdn.com/b/webdev/archive/2012/11/23/asp-net-web-api-and-http-byte-range-support.aspx
-
-This sample is provided as part of the ASP.NET Web Stack sample repository at
-http://aspnet.codeplex.com/
-
-For more information about the samples, please see
-http://go.microsoft.com/fwlink/?LinkId=261487
