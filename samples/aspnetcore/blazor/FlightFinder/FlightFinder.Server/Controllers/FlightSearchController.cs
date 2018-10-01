@@ -24,7 +24,7 @@ namespace FlightFinder.Server.Controllers
                     FromAirportCode = criteria.FromAirport,
                     ToAirportCode = criteria.ToAirport,
                     DepartureTime = criteria.OutboundDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
-                    ArrivalTime = criteria.OutboundDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
+                    ReturnTime = criteria.OutboundDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
                     DurationHours = 2 + rng.Next(10),
                     TicketClass = criteria.TicketClass
                 },
@@ -34,7 +34,7 @@ namespace FlightFinder.Server.Controllers
                     FromAirportCode = criteria.ToAirport,
                     ToAirportCode = criteria.FromAirport,
                     DepartureTime = criteria.ReturnDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
-                    ArrivalTime = criteria.ReturnDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
+                    ReturnTime = criteria.ReturnDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
                     DurationHours = 2 + rng.Next(10),
                     TicketClass = criteria.TicketClass
                 },

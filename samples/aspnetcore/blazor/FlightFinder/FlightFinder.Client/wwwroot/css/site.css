@@ -191,7 +191,7 @@ body {
         text-align: center;
     }
 
-    #results-area .arrival {
+    #results-area .return {
         text-align: center;
         color: #777;
         font-size: 0.8rem !important;
@@ -251,7 +251,7 @@ body {
         flex: auto;
     }
 
-    #selections-area .departure, #selections-area .arrival, #selections-area .price {
+    #selections-area .departure, #selections-area .return, #selections-area .price {
         text-align: center;
         color: #777;
         font-size: 0.8rem !important;
