@@ -1,0 +1,35 @@
+﻿<li class="list-group-item justify-content-between">
+    <div>
+        Rental Car in @Itinerary.Airport
+    </div>
+    <button type="button" class="close" aria-label="Close" onclick=@(() => OnRemoveItinerary())>
+        <span aria-hidden="true">&times;</span>
+    </button>
+</li>
+<li class="list-group-item">
+    <div class="date">
+        <h4>@Itinerary.Pickup.ToString("ddd MMM d")</h4>
+    </div>
+
+    <div class="departure">
+        <h4>@Itinerary.Pickup.ToShortTimeString()</h4>
+        @Itinerary.Airport
+    </div>
+
+    <div class="arrow">➝</div>
+
+    <div class="return">
+        <h4>@Itinerary.Return.ToShortTimeString()</h4>
+        @Itinerary.Airport
+    </div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center py-2">
+    <div class="airline"><h4>@Itinerary.CompanyName</h4></div>
+    <div class="airline"><h4>@Itinerary.Vehicle</h4></div>
+    <div class="price"><h2>@Itinerary.Price.ToString("$0")</h2></div>
+</li>
+
+@functions {
+    [Parameter] CarRentalItinerary Itinerary { get; set; }
+    [Parameter] Action OnRemoveItinerary { get; set; }
+}

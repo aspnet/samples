@@ -1,33 +1,21 @@
-﻿<h2>Shortlist (@Itineraries.Count)</h2>
+﻿<h2>Shortlist (@Items.Count)</h2>
 
-@foreach (var item in Itineraries)
+@foreach (var item in Items)
 {
     <ul class="list-group mb-4">
-        <li class="list-group-item justify-content-between">
-            <div>
-                <nobr>@item.Outbound.FromAirportCode</nobr> -
-                <nobr>@item.Outbound.ToAirportCode</nobr>
-            </div>
-            <button type="button" class="close" aria-label="Close" onclick=@(() => OnRemoveItinerary(item))>
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
-        <li class="list-group-item">
-            <ShortlistFlightSegment Flight=item.Outbound />
-        </li>
-        <li class="list-group-item">
-            <ShortlistFlightSegment Flight=item.Return />
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center py-2">
-            <div class="airline"><h4>@item.AirlineName</h4></div>
-            <div class="price"><h2>@item.Price.ToString("$0")</h2></div>
-        </li>
+        @if (item is FlightItinerary flight)
+        {
+            <ShortlistFlightItem Itinerary="flight" OnRemoveItinerary="() => OnRemoveItinerary(item)"/>
+        }
+        else if (item is CarRentalItinerary car)
+        {
+            <ShortlistCarRentalItem Itinerary="car" OnRemoveItinerary="() => OnRemoveItinerary(item)" />
+        }
     </ul>
 }
 
 @functions
 {
-    [Parameter] IReadOnlyList<Itinerary> Itineraries { get; set; }
-
-    [Parameter] Action<Itinerary> OnRemoveItinerary { get; set; }
+    [Parameter] IReadOnlyList<object> Items { get; set; }
+    [Parameter] Action<object> OnRemoveItinerary { get; set; }
 }

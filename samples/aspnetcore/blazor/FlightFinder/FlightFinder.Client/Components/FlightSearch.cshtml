@@ -60,7 +60,7 @@
 
 @functions
 {
-    [Parameter] Func<SearchCriteria, Task> OnSearch { get; set; }
+    [Parameter] Func<FlightSearchCriteria, Task> OnSearch { get; set; }
 
-    private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+    private FlightSearchCriteria criteria = new FlightSearchCriteria("LHR", "SEA");
 }

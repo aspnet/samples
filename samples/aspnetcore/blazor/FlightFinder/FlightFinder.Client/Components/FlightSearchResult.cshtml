@@ -1,0 +1,21 @@
+﻿<div class="mb-4 d-flex align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item d-flex align-items-center">
+            <SearchResultFlightSegment Symbol="▶" Flight=Item.Outbound />
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <SearchResultFlightSegment Symbol="◀" Flight=Item.Return />
+        </li>
+    </ul>
+    <div class="price ml-3">
+        <h3>@Item.Price.ToString("$0")</h3>
+        <button class="btn" onclick=@(() => OnAddItinerary(Item))>Add</button>
+    </div>
+</div>
+
+@functions
+{
+    // Parameters
+    [Parameter] FlightItinerary Item { get; set; }
+    [Parameter] Action<FlightItinerary> OnAddItinerary { get; set; }
+}

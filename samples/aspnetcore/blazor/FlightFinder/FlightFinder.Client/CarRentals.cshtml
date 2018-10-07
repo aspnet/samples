@@ -1,0 +1,25 @@
+﻿@page "/cars"
+@layout MainLayout
+@inject AppState state
+
+<div id="search-and-results-area">
+    <div id="search-area" class="px-2 py-3">
+        <CarRentalSearch OnSearch=state.SearchRentalCars />
+    </div>
+    <div id="results-area">
+        <GreyOutZone IsGreyedOut=state.SearchInProgress>
+            <CarRentalSearchResults Itineraries="state.RentalCarSearchResults" OnAddItinerary="state.AddToShortlist" />
+        </GreyOutZone>
+    </div>
+</div>
+<div id="selections-area" class="p-3 pl-4">
+    <Shortlist Items=state.Shortlist OnRemoveItinerary="state.RemoveFromShortlist" />
+</div>
+
+@functions
+{
+    protected override void OnInit()
+    {
+        state.OnChange += StateHasChanged;
+    }
+}

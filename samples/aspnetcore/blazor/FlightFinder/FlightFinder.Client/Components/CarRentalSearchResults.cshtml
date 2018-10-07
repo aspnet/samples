@@ -1,0 +1,27 @@
+﻿<div class="px-4">
+    @if (Itineraries != null)
+    {
+        <div class="title">
+            <h2 class="my-3">@Itineraries.Count results</h2>
+            <select class="custom-select" bind=chosenSortOrder>
+                <option value=@CarRentalItinerary.SortOrder.Price>Cheapest</option>
+            </select>
+        </div>
+
+        @foreach (var item in sortedItineraries)
+        {
+            <CarRentalSearchResult Item="item" OnAddItinerary="OnAddItinerary" />
+        }
+    }
+</div>
+
+@functions
+{
+    // Parameters
+    [Parameter] IReadOnlyList<CarRentalItinerary> Itineraries { get; set; }
+    [Parameter] Action<CarRentalItinerary> OnAddItinerary { get; set; }
+
+    // Private state
+    private CarRentalItinerary.SortOrder chosenSortOrder;
+    private IEnumerable<CarRentalItinerary> sortedItineraries => CarRentalItinerary.Sort(Itineraries, chosenSortOrder);
+}

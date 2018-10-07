@@ -1,0 +1,56 @@
+﻿<div class="col">
+    <!-- Airport selection -->
+    <div class="row py-1">
+        <!-- To airport -->
+        <div class="col">
+            <div class="form-control d-flex">
+                <div><i>🚗</i>&nbsp;&nbsp;Near:</div>
+                <input list="airports" placeholder="..." bind=criteria.Airport />
+            </div>
+        </div>
+    </div>
+
+    <!-- Departure / return dates -->
+    <div class="row py-1">
+        <!-- Depart date -->
+        <div class="col pr-0">
+            <div class="form-control d-flex">
+                <div><i>🗓</i>&nbsp;&nbsp;Pickup:</div>
+                <input type="date" bind=criteria.PickupDate format-value="yyyy-MM-dd" />
+            </div>
+        </div>
+        <div class="col px-2 py-1 align-self-end arrow">➝</div>
+
+        <!-- Return date -->
+        <div class="col pl-0">
+            <div class="form-control d-flex">
+                <div><i>🗓</i>&nbsp;&nbsp;Return:</div>
+                <input type="date" bind=criteria.ReturnDate format-value="yyyy-MM-dd" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Class / search -->
+    <div class="row py-1 d-flex px-3">
+        <div>
+            <select class="custom-select" bind=criteria.Kind>
+                <option value=@CarRentalKind.Economy>Economy</option>
+                <option value=@CarRentalKind.Sedan>Full Size</option>
+                <option value=@CarRentalKind.SportUtility>Sport-Utility</option>
+            </select>
+        </div>
+        <div class="ml-auto">
+            <button onclick=@(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
+                Search ➝
+            </button>
+        </div>
+    </div>
+</div>
+<AirportsList />
+
+@functions
+{
+    [Parameter] Func<CarRentalSearchCriteria, Task> OnSearch { get; set; }
+
+    private CarRentalSearchCriteria criteria = new CarRentalSearchCriteria("SEA");
+}

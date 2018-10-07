@@ -1,0 +1,31 @@
+﻿<div class="mb-4 d-flex align-items-center">
+    <ul class="list-group">
+        <li class="list-group-item d-flex align-items-center">
+            <div class="airline">
+                <h4>@Item.CompanyName</h4>
+                @Item.Vehicle
+            </div>
+
+            <div class="departure">
+                <h4>@Item.Pickup.ToString("ddd MMM d") (@Item.Airport)</h4>
+            </div>
+
+            <div class="arrow">➝</div>
+
+            <div class="return">
+                <h4>@Item.Return.ToString("ddd MMM d") (@Item.Airport)</h4>
+            </div>
+        </li>
+    </ul>
+    <div class="price ml-3">
+        <h3>@Item.Price.ToString("$0")</h3>
+        <button class="btn" onclick=@(() => OnAddItinerary(Item))>Add</button>
+    </div>
+</div>
+
+@functions
+{
+    // Parameters
+    [Parameter] CarRentalItinerary Item { get; set; }
+    [Parameter] Action<CarRentalItinerary> OnAddItinerary { get; set; }
+}

@@ -1,0 +1,29 @@
+﻿<div class="px-4">
+    @if (Itineraries != null)
+    {
+        <div class="title">
+            <h2 class="my-3">@Itineraries.Count results</h2>
+            <select class="custom-select" bind=chosenSortOrder>
+                <option value=@FlightItinerary.SortOrder.Price>Cheapest</option>
+                <option value=@FlightItinerary.SortOrder.Duration>Quickest</option>
+            </select>
+        </div>
+
+        @foreach (var item in sortedItineraries)
+        {
+            <FlightSearchResult Item="item" OnAddItinerary="OnAddItinerary" />
+        }
+    }
+</div>
+
+@functions
+{
+    // Parameters
+    [Parameter] IReadOnlyList<FlightItinerary> Itineraries { get; set; }
+    [Parameter] Action<FlightItinerary> OnAddItinerary { get; set; }
+
+
+    // Private state
+    private FlightItinerary.SortOrder chosenSortOrder;
+    private IEnumerable<FlightItinerary> sortedItineraries => FlightItinerary.Sort(Itineraries, chosenSortOrder);
+}
