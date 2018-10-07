@@ -13,6 +13,15 @@ html {
 body {
     height: 100%;
     display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+#content {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    height: 100%;
 }
 
 #search-and-results-area {
@@ -76,6 +85,33 @@ body {
         width: 100%;
         height: 100%;
         z-index: 1;
+    }
+}
+
+nav {
+    background: #777;
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            background: #777;
+            color: white;
+        }
+    }
+
+    a {
+        color: white;
+
+        &:hover, &:active, &.active {
+            background-color: #9d136d;
+            color: white;
+        }
+
+        &:visited {
+            color: white;
+        }
     }
 }
 

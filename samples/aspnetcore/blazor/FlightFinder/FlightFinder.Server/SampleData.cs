@@ -1,4 +1,5 @@
-﻿using FlightFinder.Shared;
+﻿using System.Collections.Generic;
+using FlightFinder.Shared;
 
 namespace FlightFinder.Server
 {
@@ -70,6 +71,49 @@ namespace FlightFinder.Server
             "Singapore Airways",
             "Qantas",
             "Virgin Atlantic",
+        };
+
+        public readonly static string[] RentalCarCompanies = new[]
+        {
+            "Alamo",
+            "Avis",
+            "Budget",
+            "Dan Roth's discount car bonanza!",
+            "Enterprise",
+            "Europcar",
+            "Firefly",
+            "Hertz",
+        };
+
+        public readonly static Dictionary<CarRentalKind, string[]> RentalCars = new Dictionary<CarRentalKind, string[]>()
+        {
+            {
+                CarRentalKind.Economy,
+                new string[]
+                {
+                    "Ford Focus",
+                    "Toyota Corolla",
+                    "Volkswagen Up!",
+                }
+            },
+            {
+                CarRentalKind.Sedan, new string[]
+                {
+                    "Buick Lacrosse",
+                    "Ford Taurus",
+                    "Honda Accord",
+                    "Toyota Avalon",
+                }
+            },
+            {
+                CarRentalKind.SportUtility,
+                new string[]
+                {
+                    "Chevrolet Suburban",
+                    "Ford Explorer",
+                    "Jeep Wrangler",
+                }
+            },
         };
     }
 }

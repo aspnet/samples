@@ -1,6 +1,6 @@
 ﻿namespace FlightFinder.Shared
 {
-    public class Itinerary
+    public class FlightItinerary
     {
         public FlightSegment Outbound { get; set; }
         public FlightSegment Return { get; set; }

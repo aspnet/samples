@@ -1,20 +1,22 @@
-﻿using FlightFinder.Shared;
-using Microsoft.AspNetCore.Blazor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FlightFinder.Shared;
+using Microsoft.AspNetCore.Blazor;
 
 namespace FlightFinder.Client.Services
 {
     public class AppState
     {
         // Actual state
-        public IReadOnlyList<Itinerary> SearchResults { get; private set; }
+        public IReadOnlyList<FlightItinerary> FlightSearchResults { get; private set; }
+        public IReadOnlyList<CarRentalItinerary> RentalCarSearchResults { get; private set; }
+
         public bool SearchInProgress { get; private set; }
 
-        private readonly List<Itinerary> shortlist = new List<Itinerary>();
-        public IReadOnlyList<Itinerary> Shortlist => shortlist;
+        private readonly List<object> shortlist = new List<object>();
+        public IReadOnlyList<object> Shortlist => shortlist;
 
         // Lets components receive change notifications
         // Could have whatever granularity you want (more events, hierarchy...)
@@ -27,23 +29,39 @@ namespace FlightFinder.Client.Services
             http = httpInstance;
         }
 
-        public async Task Search(SearchCriteria criteria)
+        public async Task SearchFlights(FlightSearchCriteria criteria)
         {
             SearchInProgress = true;
             NotifyStateChanged();
 
-            SearchResults = await http.PostJsonAsync<Itinerary[]>("/api/flightsearch", criteria);
+            FlightSearchResults = await http.PostJsonAsync<FlightItinerary[]>("/api/flightsearch", criteria);
             SearchInProgress = false;
             NotifyStateChanged();
         }
 
-        public void AddToShortlist(Itinerary itinerary)
+        public async Task SearchRentalCars(CarRentalSearchCriteria criteria)
+        {
+            SearchInProgress = true;
+            NotifyStateChanged();
+
+            RentalCarSearchResults = await http.PostJsonAsync<CarRentalItinerary[]>("/api/carrentalsearch", criteria);
+            SearchInProgress = false;
+            NotifyStateChanged();
+        }
+
+        public void AddToShortlist(FlightItinerary itinerary)
         {
             shortlist.Add(itinerary);
             NotifyStateChanged();
         }
 
-        public void RemoveFromShortlist(Itinerary itinerary)
+        public void AddToShortlist(CarRentalItinerary itinerary)
+        {
+            shortlist.Add(itinerary);
+            NotifyStateChanged();
+        }
+
+        public void RemoveFromShortlist(object itinerary)
         {
             shortlist.Remove(itinerary);
             NotifyStateChanged();

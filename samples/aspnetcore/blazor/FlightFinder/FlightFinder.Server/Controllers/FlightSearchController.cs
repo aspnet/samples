@@ -10,12 +10,12 @@ namespace FlightFinder.Server.Controllers
     [Route("api/[controller]")]
     public class FlightSearchController
     {
-        public async Task<IEnumerable<Itinerary>> Search([FromBody] SearchCriteria criteria)
+        public async Task<IEnumerable<FlightItinerary>> Search([FromBody] FlightSearchCriteria criteria)
         {
             await Task.Delay(500); // Gotta look busy...
 
             var rng = new Random();
-            return Enumerable.Range(0, rng.Next(1, 5)).Select(_ => new Itinerary
+            return Enumerable.Range(0, rng.Next(1, 5)).Select(_ => new FlightItinerary
             {
                 Price = rng.Next(100, 2000),
                 Outbound = new FlightSegment

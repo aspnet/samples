@@ -1,0 +1,24 @@
+﻿<li class="list-group-item justify-content-between">
+    <div>
+        <nobr>@Itinerary.Outbound.FromAirportCode</nobr> -
+        <nobr>@Itinerary.Outbound.ToAirportCode</nobr>
+    </div>
+    <button type="button" class="close" aria-label="Close" onclick=@(() => OnRemoveItinerary())>
+        <span aria-hidden="true">&times;</span>
+    </button>
+</li>
+<li class="list-group-item">
+    <ShortlistFlightSegment Flight=Itinerary.Outbound />
+</li>
+<li class="list-group-item">
+    <ShortlistFlightSegment Flight=Itinerary.Return />
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center py-2">
+    <div class="airline"><h4>@Itinerary.AirlineName</h4></div>
+    <div class="price"><h2>@Itinerary.Price.ToString("$0")</h2></div>
+</li>
+
+@functions {
+    [Parameter] FlightItinerary Itinerary { get; set; }
+    [Parameter] Action OnRemoveItinerary { get; set; }
+}

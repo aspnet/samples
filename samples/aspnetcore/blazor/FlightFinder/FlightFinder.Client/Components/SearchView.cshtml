@@ -1,0 +1,59 @@
+﻿@typeparam TSearchResult
+
+<div id="search-area" class="px-2 py-3">
+    @SearchContent
+</div>
+<div id="results-area">
+    <GreyOutZone IsGreyedOut=SearchInProgress>
+        <div class="px-4">
+            @if (Results != null)
+            {
+                <div class="title">
+                    <h2 class="my-3">@Results.Count results</h2>
+                    @if (Sort != null && Sort.Count > 0)
+                    {
+                        <select class="custom-select" bind=chosenSortOrder>
+                            @for (var i = 0; i < Sort.Count; i++)
+                            {
+                                <option value=@i>@Sort[i].DisplayName</option>
+                            }
+                        </select>
+                    }
+                </div>
+
+                foreach (var result in SortResults(Results))
+                {
+                    @SearchResultItemContent(result);
+                }
+            }
+        </div>
+    </GreyOutZone>
+</div>
+
+@functions {
+    [Parameter] bool SearchInProgress { get; set; }
+    [Parameter] IReadOnlyList<TSearchResult> Results { get; set; }
+    [Parameter] RenderFragment SearchContent { get; set; }
+    [Parameter] RenderFragment<TSearchResult> SearchResultItemContent { get; set; }
+    [Parameter] IReadOnlyList<SortOrder> Sort { get; set; }
+
+    int chosenSortOrder;
+
+    IEnumerable<TSearchResult> SortResults(IEnumerable<TSearchResult> results)
+    {
+        var sorted = results;
+        if (Sort != null && chosenSortOrder < Sort.Count)
+        {
+            sorted = Sort[chosenSortOrder].Sort(sorted);
+        }
+
+        return sorted;
+    }
+
+    public class SortOrder
+    {
+        public string DisplayName { get; set; }
+
+        public Func<IEnumerable<TSearchResult>, IEnumerable<TSearchResult>> Sort { get; set; }
+    }
+}
