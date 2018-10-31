@@ -31,8 +31,8 @@ namespace FlightFinder.Server.Controllers
                 Return = new FlightSegment
                 {
                     Airline = RandomAirline(),
-                    FromAirportCode = criteria.ToAirport,
-                    ToAirportCode = criteria.FromAirport,
+                    FromAirportCode = criteria.FromAirport,
+                    ToAirportCode = criteria.ToAirport,
                     DepartureTime = criteria.ReturnDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
                     ReturnTime = criteria.ReturnDate.AddHours(rng.Next(24)).AddMinutes(5 * rng.Next(12)),
                     DurationHours = 2 + rng.Next(10),
