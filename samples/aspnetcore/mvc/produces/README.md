@@ -1,9 +1,36 @@
 # Produces Routing Policy Sample
 
-This sample has a `ProducesMatcherPolicy` that will match and select an endpoint using the request's `accept` header together with `[Produces]` on actions.
+This sample has a `ProducesMatcherPolicy` that will match and select an endpoint using the request's `accept` header together with `[Produces]` on actions. The policy will select an endpoint instead of routing raising an error that multiple endpoints match the request.
 
-* Requests to `FallbackController` that do not match an action's `[Produces]` media type will fallback to the action without an attribute
-* Requests to `StrictController` that do not match an action's `[Produces]` media type will return 404
+```cs
+[Route("api/[controller]")]
+[ApiController]
+public class FallbackController : ControllerBase
+{
+    // Will be called for accept: application/json
+    [HttpGet]
+    [Produces("application/json")]
+    public ActionResult<string> GetJson()
+    {
+        return "application/json";
+    }
+
+    // Will be called for accept: application/xml
+    [HttpGet]
+    [Produces("application/xml")]
+    public ActionResult<string> GetXml()
+    {
+        return "application/xml";
+    }
+
+    // Will be called as a fallback
+    [HttpGet]
+    public ActionResult<string> Get()
+    {
+        return "*/*";
+    }
+}
+```
 
 Register the policy with dependency injection in your `Startup.cs`:
 

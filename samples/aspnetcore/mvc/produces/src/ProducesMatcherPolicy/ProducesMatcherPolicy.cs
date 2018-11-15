@@ -236,8 +236,10 @@ namespace ProducesMatcherPolicy
 
                     for (var j = 0; j < destinations.Length; j++)
                     {
-                        if (requestMediaType.IsSubsetOf(destinations[j].mediaType)
-                            && !destinations[j].mediaType.MatchesAllTypes)
+                        // Don't test */* because we want to find a specified match
+                        // Exit destination will handle */*
+                        if (!destinations[j].mediaType.MatchesAllTypes
+                            && requestMediaType.IsSubsetOf(destinations[j].mediaType))
                         {
                             return destinations[j].destination;
                         }
