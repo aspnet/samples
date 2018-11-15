@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Formatters.Internal;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Matching;
 using Microsoft.Net.Http.Headers;
@@ -222,18 +223,34 @@ namespace ProducesMatcherPolicy
                     return _exitDestination;
                 }
 
-                var requestMediaType = new MediaType(acceptContentType);
+                var mediaTypesWithQuality = new List<MediaTypeSegmentWithQuality>();
+                AcceptHeaderParser.ParseAcceptHeader(acceptContentType, mediaTypesWithQuality);
+                mediaTypesWithQuality.Sort(_sortFunction);
+
                 var destinations = _destinations;
-                for (var i = 0; i < destinations.Length; i++)
+
+                // Loop through accept values. Highest quality come first
+                for (int i = 0; i < mediaTypesWithQuality.Count; i++)
                 {
-                    if (requestMediaType.IsSubsetOf(destinations[i].mediaType))
+                    var requestMediaType = new MediaType(mediaTypesWithQuality[i].MediaType);
+
+                    for (var j = 0; j < destinations.Length; j++)
                     {
-                        return destinations[i].destination;
+                        if (requestMediaType.IsSubsetOf(destinations[j].mediaType)
+                            && !destinations[j].mediaType.MatchesAllTypes)
+                        {
+                            return destinations[j].destination;
+                        }
                     }
                 }
 
                 return _exitDestination;
             }
+
+            private static readonly Comparison<MediaTypeSegmentWithQuality> _sortFunction = (left, right) =>
+            {
+                return left.Quality > right.Quality ? -1 : (left.Quality == right.Quality ? 0 : 1);
+            };
         }
     }
 }

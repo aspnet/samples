@@ -6,20 +6,20 @@ namespace MvcSample.Controllers
     [ApiController]
     public class FallbackController : ControllerBase
     {
-        // Will be called for accept: application/hal+json
+        // Will be called for accept: application/json
         [HttpGet]
-        [Produces("application/hal+json")]
+        [Produces("application/json")]
         public ActionResult<string> GetJson()
         {
-            return "application/hal+json";
+            return "application/json";
         }
 
-        // Will be called for accept: application/hal+xml
+        // Will be called for accept: application/xml
         [HttpGet]
-        [Produces("application/hal+xml")]
+        [Produces("application/xml")]
         public ActionResult<string> GetXml()
         {
-            return "application/hal+xml";
+            return "application/xml";
         }
 
         // Will be called as a fallback
