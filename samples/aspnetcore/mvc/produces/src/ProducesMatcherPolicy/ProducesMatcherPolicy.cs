@@ -13,7 +13,7 @@ namespace ProducesMatcherPolicy
 {
     public class ProducesMatcherPolicy : MatcherPolicy, IEndpointComparerPolicy, INodeBuilderPolicy
     {
-        internal const string Http415EndpointDisplayName = "404 HTTP Unsupported Accept Media Type";
+        internal const string Http404EndpointDisplayName = "404 HTTP Unsupported Accept Media Type";
         internal const string AnyContentType = "*/*";
 
         // Run after HTTP methods, but before 'default'.
@@ -140,7 +140,7 @@ namespace ProducesMatcherPolicy
                     return Task.CompletedTask;
                 },
                 EndpointMetadataCollection.Empty,
-                Http415EndpointDisplayName);
+                Http404EndpointDisplayName);
         }
 
         public PolicyJumpTable BuildJumpTable(int exitDestination, IReadOnlyList<PolicyJumpTableEdge> edges)
