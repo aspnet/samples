@@ -53,7 +53,7 @@ namespace ProducesMatcherPolicy.Tests
         }
 
         [Fact]
-        public async Task Get_NoContentType_ReturnsFallbackAction()
+        public async Task Get_NoContentType_ReturnsNotAcceptable()
         {
             // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "api/Strict");
@@ -62,11 +62,11 @@ namespace ProducesMatcherPolicy.Tests
             var response = await Client.SendAsync(request);
 
             // Assert
-            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+            Assert.Equal(HttpStatusCode.NotAcceptable, response.StatusCode);
         }
 
         [Fact]
-        public async Task Get_UndefinedContentType_ReturnsFallbackAction()
+        public async Task Get_UndefinedContentType_ReturnsNotAcceptable()
         {
             // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "api/Strict");
@@ -76,7 +76,7 @@ namespace ProducesMatcherPolicy.Tests
             var response = await Client.SendAsync(request);
 
             // Assert
-            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+            Assert.Equal(HttpStatusCode.NotAcceptable, response.StatusCode);
         }
     }
 }
