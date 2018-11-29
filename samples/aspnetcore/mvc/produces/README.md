@@ -1,6 +1,6 @@
 # Produces Routing Policy Sample
 
-This sample has a `ProducesMatcherPolicy` that will match and select an endpoint using the request's `accept` header together with `[Produces]` on actions. The policy will select an endpoint instead of routing raising an error that multiple endpoints match the request.
+This sample has a `ProducesMatcherPolicy` that will match and select an endpoint using the request's `accept` header together with `[Produces]` on actions. The policy will select an endpoint instead of routing raising an error that multiple endpoints match the request. If no endpoint can match the `accept` header and there is no fallback endpoint then a [406 Not Acceptable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) response is returned.
 
 ```cs
 [Route("api/[controller]")]

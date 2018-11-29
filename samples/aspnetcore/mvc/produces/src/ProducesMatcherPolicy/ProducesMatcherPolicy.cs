@@ -108,7 +108,7 @@ namespace ProducesMatcherPolicy
                             {
                                 kvp.Value.Add(endpoint);
 
-                                // It's possible that a ConsumesMetadata defines overlapping wildcards. Don't add an endpoint
+                                // It's possible that a ProducesAttribute defines overlapping wildcards. Don't add an endpoint
                                 // to any edge twice
                                 break;
                             }
@@ -169,7 +169,7 @@ namespace ProducesMatcherPolicy
                 }
             }
 
-            return new ConsumesPolicyJumpTable(exitDestination, ordered);
+            return new ProducesPolicyJumpTable(exitDestination, ordered);
         }
 
         private int GetScore(in MediaType mediaType)
@@ -204,12 +204,12 @@ namespace ProducesMatcherPolicy
             }
         }
 
-        private class ConsumesPolicyJumpTable : PolicyJumpTable
+        private class ProducesPolicyJumpTable : PolicyJumpTable
         {
             private (MediaType mediaType, int destination)[] _destinations;
             private int _exitDestination;
 
-            public ConsumesPolicyJumpTable(int exitDestination, (MediaType mediaType, int destination)[] destinations)
+            public ProducesPolicyJumpTable(int exitDestination, (MediaType mediaType, int destination)[] destinations)
             {
                 _exitDestination = exitDestination;
                 _destinations = destinations;
