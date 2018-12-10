@@ -1,6 +1,6 @@
 # Domain Routing Policy Sample
 
-This sample has a `DomainMatcherPolicy` for routing in ASP.NET Core 2.2 and above. This policy will match an endpoint using the request's `host` header together with `[Domain]` on actions. If no endpoint matches the `host` header, and there is no fallback endpoint, then a 404 response is returned.
+This sample has a `DomainMatcherPolicy` for routing in ASP.NET Core 2.2 and above. This policy will match an endpoint using the request's `host` header together with `[Domain]` on controller and actions. If no endpoint matches the `host` header, and there is no fallback endpoint, then a 404 response is returned.
 
 ```cs
 [Route("api/[controller]")]
@@ -29,6 +29,19 @@ public class DomainController : ControllerBase
     }
 }
 ```
+
+## Features
+
+* Match on the host name, port, or both
+  * `contoso.com`
+  * `*:80`
+  * `contoso.com:80`
+* Match with wildcards for subdomains, e.g. `*.contoso.com` will match `www.contoso.com`
+* `DomainAttribute` can be placed on a controller or individual actions
+* Controllers and actions with no `DomainAttribute` will match all `host` header values
+* No match will return a 404 response.
+
+## Configuration
 
 Register the policy with dependency injection in your `Startup.cs`:
 
