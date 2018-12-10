@@ -1,6 +1,6 @@
 # Domain Routing Policy Sample
 
-This sample has a `DomainMatcherPolicy` that will match and select an endpoint using the request's `host` header together with `[Domain]` on actions. The routing will use the policy to select an endpoint instead of an error that multiple endpoints match the request. If no endpoint can match the `host` header, and there is no fallback endpoint, then a 404 response is returned.
+This sample has a `DomainMatcherPolicy` that will match an endpoint using the request's `host` header together with `[Domain]` on actions. The policy will select an endpoint and avoid an error that multiple endpoints match the request. If no endpoint matches the `host` header, and there is no fallback endpoint, then a 404 response is returned.
 
 ```cs
 [Route("api/[controller]")]
