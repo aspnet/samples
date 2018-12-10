@@ -1,33 +1,31 @@
-# Produces Routing Policy Sample
+# Domain Routing Policy Sample
 
-This sample has a `ProducesMatcherPolicy` that will match and select an endpoint using the request's `accept` header together with `[Produces]` on actions. The policy will select an endpoint instead of routing raising an error that multiple endpoints match the request. If no endpoint can match the `accept` header and there is no fallback endpoint then a [406 Not Acceptable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) response is returned.
+This sample has a `DomainMatcherPolicy` that will match and select an endpoint using the request's `host` header together with `[Domain]` on actions. The routing will use the policy to select an endpoint instead of an error that multiple endpoints match the request. If no endpoint can match the `host` header, and there is no fallback endpoint, then a 404 response is returned.
 
 ```cs
 [Route("api/[controller]")]
 [ApiController]
-public class FallbackController : ControllerBase
+public class DomainController : ControllerBase
 {
-    // Will be called for accept: application/json
     [HttpGet]
-    [Produces("application/json")]
-    public ActionResult<string> GetJson()
+    [Domain("contoso.com", "*.contoso.com")]
+    public ActionResult<string> GetContoso()
     {
-        return "application/json";
+        return "Hello Contoso";
     }
 
-    // Will be called for accept: application/xml
     [HttpGet]
-    [Produces("application/xml")]
-    public ActionResult<string> GetXml()
+    [Domain("adventure-works.com", "*.adventure-works.com")]
+    public ActionResult<string> GetAdventureWorks()
     {
-        return "application/xml";
+        return "Hello AdventureWorks";
     }
 
     // Will be called as a fallback
     [HttpGet]
     public ActionResult<string> Get()
     {
-        return "*/*";
+        return "Hello World";
     }
 }
 ```
@@ -39,8 +37,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // ...
 
-    services.TryAddEnumerable(ServiceDescriptor.Singleton<MatcherPolicy, ProducesMatcherPolicy.ProducesMatcherPolicy>());
+    services.TryAddEnumerable(ServiceDescriptor.Singleton<MatcherPolicy, DomainMatcherPolicy.DomainMatcherPolicy>());
 }
 ```
 
-`ProducesMatcherPolicy` requires ASP.NET Core 2.2 or above.
+`DomainMatcherPolicy` requires ASP.NET Core 2.2 or above.
