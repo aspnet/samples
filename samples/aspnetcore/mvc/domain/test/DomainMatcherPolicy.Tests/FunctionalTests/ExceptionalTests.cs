@@ -82,22 +82,6 @@ namespace DomainMatcherPolicy.Tests.FunctionalTests
         [Theory]
         [InlineData("http://127.0.0.1:5002")]
         [InlineData("http://128.0.0.1:5002")]
-        public async Task Get_WildcardMatches(string baseAddress)
-        {
-            // Arrange
-            var request = new HttpRequestMessage(HttpMethod.Get, "api/Exceptional");
-
-            // Act
-            var client = CreateClient(baseAddress);
-            var response = await client.SendAsync(request);
-            var responseContent = await response.Content.ReadAsStringAsync();
-
-            // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal("*.0.0.1:5002", responseContent);
-        }
-
-        [Theory]
         [InlineData("http://127.99.0.1:5002")]
         [InlineData("http://128.99.0.1:5002")]
         public async Task Get_MultipleWildcardMatches(string baseAddress)
