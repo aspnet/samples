@@ -1,5 +1,5 @@
 ﻿using FlightFinder.Shared;
-using Microsoft.AspNetCore.Blazor;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
