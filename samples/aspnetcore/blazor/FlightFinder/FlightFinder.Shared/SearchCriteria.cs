@@ -10,10 +10,6 @@ namespace FlightFinder.Shared
         public DateTime ReturnDate { get; set; }
         public TicketClass TicketClass { get; set; }
 
-        public SearchCriteria()
-        {
-        }
-
         public SearchCriteria(string fromAirport, string toAirport)
         {
             FromAirport = fromAirport;
