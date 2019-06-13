@@ -5,7 +5,7 @@
         <div class="col pr-0">
             <div class="form-control d-flex">
                 <div><i>✈</i>&nbsp;&nbsp;From:</div>
-                <input list="airports" placeholder="..." bind=criteria.FromAirport />
+                <input list="airports" placeholder="..." @bind="criteria.FromAirport" />
             </div>
         </div>
         <div class="col px-2 py-1 align-self-end arrow">➝</div>
@@ -14,7 +14,7 @@
         <div class="col pl-0">
             <div class="form-control d-flex">
                 <div><i>✈</i>&nbsp;&nbsp;To:</div>
-                <input list="airports" placeholder="..." bind=criteria.ToAirport />
+                <input list="airports" placeholder="..." @bind="criteria.ToAirport" />
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="col pr-0">
             <div class="form-control d-flex">
                 <div><i>🗓</i>&nbsp;&nbsp;Depart:</div>
-                <input type="date" bind=criteria.OutboundDate format-value="yyyy-MM-dd" />
+                <input type="date" @bind="criteria.OutboundDate" @bind:format="yyyy-MM-dd" />
             </div>
         </div>
         <div class="col px-2 py-1 align-self-end arrow">➝</div>
@@ -34,7 +34,7 @@
         <div class="col pl-0">
             <div class="form-control d-flex">
                 <div><i>🗓</i>&nbsp;&nbsp;Return:</div>
-                <input type="date" bind=criteria.ReturnDate format-value="yyyy-MM-dd" />
+                <input type="date" @bind="criteria.ReturnDate" @bind:format="yyyy-MM-dd" />
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
     <!-- Class / search -->
     <div class="row py-1 d-flex px-3">
         <div>
-            <select class="custom-select" bind=criteria.TicketClass>
+            <select class="custom-select" @bind="criteria.TicketClass">
                 <option value=@TicketClass.Economy>Economy</option>
                 <option value=@TicketClass.PremiumEconomy>Premium Economy</option>
                 <option value=@TicketClass.Business>Business</option>
@@ -50,7 +50,7 @@
             </select>
         </div>
         <div class="ml-auto">
-            <button onclick=@(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
+            <button @onclick="@(() => OnSearch.InvokeAsync(criteria))" type="button" class="btn btn-danger px-5">
                 Search ➝
             </button>
         </div>
@@ -58,9 +58,10 @@
 </div>
 <AirportsList />
 
-@functions
+@code
 {
-    [Parameter] Func<SearchCriteria, Task> OnSearch { get; set; }
+    [Parameter]
+    private EventCallback<SearchCriteria> OnSearch { get; set; }
 
     private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
 }

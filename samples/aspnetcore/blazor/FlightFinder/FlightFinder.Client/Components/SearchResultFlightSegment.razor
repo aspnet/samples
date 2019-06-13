@@ -23,9 +23,11 @@
     @Flight.DurationHours hours
 </div>
 
-@functions
+@code
 {
-    [Parameter] string Symbol { get; set; }
+    [Parameter]
+    private string Symbol { get; set; }
 
-    [Parameter] FlightSegment Flight { get; set; }
+    [Parameter]
+    private FlightSegment Flight { get; set; }
 }

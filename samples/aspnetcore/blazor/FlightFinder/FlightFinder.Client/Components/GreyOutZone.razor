@@ -1,0 +1,14 @@
+﻿<div class="@(IsGreyedOut ? "greyout" : null)">
+    <div class="cover"></div>
+
+    @ChildContent
+</div>
+
+@code
+{
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    private bool IsGreyedOut { get; set; }
+}
