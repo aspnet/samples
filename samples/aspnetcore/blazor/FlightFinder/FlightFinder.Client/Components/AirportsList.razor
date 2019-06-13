@@ -3,11 +3,11 @@
 <datalist id="airports">
     @foreach (var airport in airports)
     {
-        <option value=@airport.Code>@airport.DisplayName (@airport.Code)</option>
+        <option value="@airport.Code">@airport.DisplayName (@airport.Code)</option>
     }
 </datalist>
 
-@functions
+@code
 {
     private Airport[] airports = Array.Empty<Airport>();
 

@@ -8,7 +8,7 @@
                 <nobr>@item.Outbound.FromAirportCode</nobr> -
                 <nobr>@item.Outbound.ToAirportCode</nobr>
             </div>
-            <button type="button" class="close" aria-label="Close" onclick=@(() => OnRemoveItinerary(item))>
+            <button type="button" class="close" aria-label="Close" @onclick="@(() => OnRemoveItinerary.InvokeAsync(item))">
                 <span aria-hidden="true">&times;</span>
             </button>
         </li>
@@ -25,9 +25,11 @@
     </ul>
 }
 
-@functions
+@code
 {
-    [Parameter] IReadOnlyList<Itinerary> Itineraries { get; set; }
+    [Parameter]
+    private IReadOnlyList<Itinerary> Itineraries { get; set; }
 
-    [Parameter] Action<Itinerary> OnRemoveItinerary { get; set; }
+    [Parameter]
+    private EventCallback<Itinerary> OnRemoveItinerary { get; set; }
 }

@@ -15,7 +15,8 @@
     @Flight.ToAirportCode
 </div>
 
-@functions
+@code
 {
-    [Parameter] FlightSegment Flight { get; set; }
+    [Parameter]
+    private FlightSegment Flight { get; set; }
 }
