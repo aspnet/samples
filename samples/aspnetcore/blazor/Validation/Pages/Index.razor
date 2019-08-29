@@ -1,0 +1,53 @@
+﻿@page "/"
+@using Validation.Data
+
+<h1>Validation of nested objects</h1>
+
+<EditForm Model="@person" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
+    <RecursiveDataAnnotationsValidator />
+
+    <p>
+        Name: <InputText @bind-Value="person.Name" />
+        <ValidationMessage For="@(() => person.Name)" />
+    </p>
+    <p>
+        Street: <InputText @bind-Value="person.Address.Street" />
+        <ValidationMessage For="@(() => person.Address.Street)" />
+    </p>
+    <p>
+        City: <InputText @bind-Value="person.Address.City" />
+        <ValidationMessage For="@(() => person.Address.City)" />
+    </p>
+
+    @foreach (var number in person.PhoneNumbers)
+    {
+        <p>
+            Phone: <InputText @bind-Value="number.Number" />
+            <ValidationMessage For="@(() => number.Number)" />
+        </p>
+        <p>
+            Phone description: <InputText @bind-Value="number.Description" />
+            <ValidationMessage For="@(() => number.Description)" />
+        </p>
+    }
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+<p>Validation result: @validationStatus</p>
+
+@code
+{
+    Person person = new Person();
+    string validationStatus = "";
+
+    void OnValidSubmit()
+    {
+        validationStatus = "Success!";
+    }
+
+    void OnInvalidSubmit()
+    {
+        validationStatus = "Failed!";
+    }
+}
