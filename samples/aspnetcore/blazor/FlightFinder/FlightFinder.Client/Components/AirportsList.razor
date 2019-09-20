@@ -11,8 +11,8 @@
 {
     private Airport[] airports = Array.Empty<Airport>();
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
-        airports = await Http.GetJsonAsync<Airport[]>("/api/airports");
+        airports = await Http.GetJsonAsync<Airport[]>("api/airports");
     }
 }

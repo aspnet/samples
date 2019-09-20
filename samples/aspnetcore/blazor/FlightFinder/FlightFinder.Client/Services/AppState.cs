@@ -1,9 +1,9 @@
-﻿using FlightFinder.Shared;
-using Microsoft.AspNetCore.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FlightFinder.Shared;
+using Microsoft.AspNetCore.Components;
 
 namespace FlightFinder.Client.Services
 {
