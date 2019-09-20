@@ -61,7 +61,7 @@
 @code
 {
     [Parameter]
-    private EventCallback<SearchCriteria> OnSearch { get; set; }
+    public EventCallback<SearchCriteria> OnSearch { get; set; }
 
     private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
 }

@@ -13,10 +13,10 @@
             </button>
         </li>
         <li class="list-group-item">
-            <ShortlistFlightSegment Flight=item.Outbound />
+            <ShortlistFlightSegment Flight="item.Outbound" />
         </li>
         <li class="list-group-item">
-            <ShortlistFlightSegment Flight=item.Return />
+            <ShortlistFlightSegment Flight="item.Return" />
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center py-2">
             <div class="airline"><h4>@item.AirlineName</h4></div>
@@ -28,8 +28,8 @@
 @code
 {
     [Parameter]
-    private IReadOnlyList<Itinerary> Itineraries { get; set; }
+    public IReadOnlyList<Itinerary> Itineraries { get; set; }
 
     [Parameter]
-    private EventCallback<Itinerary> OnRemoveItinerary { get; set; }
+    public EventCallback<Itinerary> OnRemoveItinerary { get; set; }
 }

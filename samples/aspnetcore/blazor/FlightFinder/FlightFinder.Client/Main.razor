@@ -2,23 +2,23 @@
 
 <div id="search-and-results-area">
     <div id="search-area" class="px-2 py-3">
-        <Search OnSearch=state.Search />
+        <Search OnSearch="state.Search" />
     </div>
     <div id="results-area">
-        <GreyOutZone IsGreyedOut=state.SearchInProgress>
-            <SearchResults Itineraries=state.SearchResults
-                           OnAddItinerary=state.AddToShortlist />
+        <GreyOutZone IsGreyedOut="state.SearchInProgress">
+            <SearchResults Itineraries="state.SearchResults"
+                           OnAddItinerary="state.AddToShortlist" />
         </GreyOutZone>
     </div>
 </div>
 <div id="selections-area" class="p-3 pl-4">
-    <Shortlist Itineraries=state.Shortlist
-               OnRemoveItinerary=state.RemoveFromShortlist />
+    <Shortlist Itineraries="state.Shortlist"
+               OnRemoveItinerary="state.RemoveFromShortlist" />
 </div>
 
 @code
 {
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         state.OnChange += StateHasChanged;
     }
