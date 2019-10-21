@@ -1,0 +1,4 @@
+﻿@inject Mvc.RenderViewToString.EmailReportGenerator ReportGenerator
+
+    <h3>Report generated using an injected service</h3>
+    @ReportGenerator.GenerateReport(Model.UserData1, Model.UserData2)
