@@ -1,0 +1,14 @@
+﻿@model Mvc.RenderViewToString.EmailViewModel
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    Layout = "_EmailLayout";
+}
+
+    Hello @Model.UserName,
+
+    <p>
+        This is a demonstration of rendering a cshtml (View) file outside of ASP.NET Core MVC.<br />
+        This sample uses a Layout, a partial, a passed in Model, and a service injected using the `inject` directive.
+
+        <partial name="EmailPartial" />
+    </p>
