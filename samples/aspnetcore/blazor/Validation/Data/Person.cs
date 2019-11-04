@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Validation.Data
@@ -9,10 +7,10 @@ namespace Validation.Data
         [Required]
         public string Name { get; set; }
 
-        [ValidateRecursive]
+        [ValidateComplexType]
         public Address Address { get; set; } = new Address();
 
-        [ValidateRecursive]
+        [ValidateComplexType]
         public PhoneNumber[] PhoneNumbers { get; set; } = new[]
         {
             new PhoneNumber(),

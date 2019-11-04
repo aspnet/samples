@@ -4,7 +4,7 @@
 <h1>Validation of nested objects</h1>
 
 <EditForm Model="@person" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
-    <RecursiveDataAnnotationsValidator />
+    <ObjectGraphDataAnnotationsValidator />
 
     <p>
         Name: <InputText @bind-Value="person.Name" />
@@ -18,17 +18,19 @@
         City: <InputText @bind-Value="person.Address.City" />
         <ValidationMessage For="@(() => person.Address.City)" />
     </p>
-
     @foreach (var number in person.PhoneNumbers)
     {
-        <p>
-            Phone: <InputText @bind-Value="number.Number" />
-            <ValidationMessage For="@(() => number.Number)" />
-        </p>
-        <p>
-            Phone description: <InputText @bind-Value="number.Description" />
-            <ValidationMessage For="@(() => number.Description)" />
-        </p>
+        <fieldset>
+            <legend>Phone</legend>
+            <p>
+                Phone: <InputText @bind-Value="number.Number" />
+                <ValidationMessage For="@(() => number.Number)" />
+            </p>
+            <p>
+                Description: <InputText @bind-Value="number.Description" />
+                <ValidationMessage For="@(() => number.Description)" />
+            </p>
+        </fieldset>
     }
 
     <button type="submit">Submit</button>
