@@ -50,7 +50,7 @@
             </select>
         </div>
         <div class="ml-auto">
-            <button @onclick="@(() => OnSearch.InvokeAsync(criteria))" type="button" class="btn btn-danger px-5">
+            <button @onclick="() => OnSearch.InvokeAsync(criteria)" type="button" class="btn btn-danger px-5">
                 Search ➝
             </button>
         </div>
