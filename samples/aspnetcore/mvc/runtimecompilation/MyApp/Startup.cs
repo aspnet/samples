@@ -18,23 +18,23 @@ namespace MyApp
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
-            this.env = env;
+            HostEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
 
-        public IWebHostEnvironment env { get; }
+        public IWebHostEnvironment HostEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var builder = services.AddControllersWithViews();
 #if DEBUG
-            if (env.IsDevelopment())
+            if (HostEnvironment.IsDevelopment())
             {
                 builder.AddRazorRuntimeCompilation(options =>
                 {
-                    var libraryPath = Path.GetFullPath(Path.Combine(env.ContentRootPath, "..", "MyClassLib"));
+                    var libraryPath = Path.GetFullPath(Path.Combine(HostEnvironment.ContentRootPath, "..", "MyClassLib"));
                     options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
                 });
             }
@@ -42,9 +42,9 @@ namespace MyApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (HostEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
