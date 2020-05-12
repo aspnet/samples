@@ -1,0 +1,101 @@
+@page "/"
+@page "/fetchdata"
+@inject HttpClient Http
+@using Virtualization.Shared
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h2>Using <code>table-layout: fixed</code></h2>
+    <div style="height:300px; overflow-y: auto;">
+        <Virtualize ItemHeight="25" Items="@forecasts">
+            <tr @key="@context.GetHashCode()" style="display: table; table-layout: fixed; width: 100%;">
+                <td>@context.Date.ToShortDateString()</td>
+                <td>@context.TemperatureC</td>
+                <td>@context.TemperatureF</td>
+                <td>@context.Summary</td>
+            </tr>
+        </Virtualize>
+    </div>
+
+    <h2>Using <code>position: sticky</code></h2>
+    <div style="height: 300px; overflow-y: auto; position: relative;">
+        <table>
+            <thead class="sticky">
+                <tr>
+                    <th>Date</th>
+                    <th>Temperature (C)</th>
+                    <th>Temperature (F)</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+
+            @*
+            This approach is about avoiding absolute positioning for each individual item. Absolute positioning
+            would have some advantages (we can be sure the items do take up the specified amount of Y space) but
+            has the bad disadvantage that you lose the normal widths and can't get table columns to line up across
+            rows/header when based on content sizing.
+
+            The concept with the design here is that <Virtualize> doesn't change how the items are laid out within
+            the DOM. There are no added wrapper elements, besides the single one whose TagName you specify.
+
+            Better still though, avoid even the TagName wrapper element. Have <Virtualize> emit no elements of its
+            own. All it does is render however many of the template instances will fill up any remaining visible
+            space in the closest scrollable ancestor, plus add a following spacer element that makes the scrollable
+            ancestor have the right scrolling range. So as far as your layout is concerned, it's the same as if the
+            full range of children were physically in the DOM.
+                - It does require you to specify an accurate ItemHeight though. If you get it wrong (e.g., because
+                  you're confused and think it's valid to specify style.height on a <tr>) then we'll end up rendering
+                  the wrong number of template instances and either not fill up the UI or inefficiently render too many.
+                  Plus the scroll range on the parent won't be right.
+            *@
+
+            <Virtualize TagName="tbody" ItemHeight="25" Items="@forecasts">
+                <tr @key="@context.GetHashCode()">
+                    <td>@context.Date.ToShortDateString()</td>
+                    <td>@context.TemperatureC</td>
+                    <td>@context.TemperatureF</td>
+                    <td>@context.Summary</td>
+                </tr>
+            </Virtualize>
+        </table>
+    </div>
+
+    <style type="text/css">
+        thead.sticky th {
+            position: sticky;
+            top: 0;
+        }
+
+        tr td {
+            height: 25px;
+        }
+    </style>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateTime Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
