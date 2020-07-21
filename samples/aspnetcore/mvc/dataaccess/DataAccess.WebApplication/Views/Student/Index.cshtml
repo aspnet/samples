@@ -1,0 +1,23 @@
+﻿@using DataAccess.WebApplication.Models;
+@model List<Student>;
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="text-center">
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Subject</td>
+        </tr>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Subject</td>
+            </tr>
+        }
+    </table>
+</div>
