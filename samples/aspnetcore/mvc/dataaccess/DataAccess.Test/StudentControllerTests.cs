@@ -55,9 +55,7 @@ namespace DataAccess.Test
         [TearDown]
         public void Teardown()
         {
-            var students = _studentContext.Students;
-            _studentContext.Students.RemoveRange(students);
-            _studentContext.SaveChanges();
+            _studentContext.Database.EnsureDeleted();
         }
 
         private void PopulateData()
