@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlightFinder.Server.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    public class FlightSearchController
+    public class FlightSearchController : ControllerBase
     {
         public async Task<IEnumerable<Itinerary>> Search([FromBody] SearchCriteria criteria)
         {
