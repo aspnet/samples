@@ -13,6 +13,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        airports = await Http.GetJsonAsync<Airport[]>("api/airports");
+        airports = await Http.GetFromJsonAsync<Airport[]>("api/airports");
     }
 }
