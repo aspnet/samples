@@ -1,0 +1,42 @@
+﻿.mdc-card {
+    display: inline-flex;
+    padding: 8px 16px 8px 16px;
+    margin-bottom: 16px;
+}
+
+.mdc-icon-button {
+    margin: 0px;
+}
+
+.mdc-card .mdc-typography--headline6 {
+    margin-bottom: 4px;
+}
+
+.puzzleMessage {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+.puzzleMessage i {
+    font-size: 36px;
+    vertical-align: bottom;
+}
+
+.correctMessage {
+    color: green;
+}
+
+.incorrectMessage {
+    color: darkred;
+}
+
+.mdc-card .piece {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0px -7px 0px -7px;
+    width: 33px;
+    height: 33px;
+    vertical-align: bottom;
+}

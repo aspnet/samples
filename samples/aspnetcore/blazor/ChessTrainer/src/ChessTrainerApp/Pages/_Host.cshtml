@@ -1,0 +1,59 @@
+﻿@page "/"
+@namespace MjrChess.Trainer.Pages
+@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Trainer</title>
+    <!-- App styles -->
+    <link href="app.bundle.css" rel="stylesheet" />
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    <base href="~/" />
+</head>
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <!-- Toast notification divs -->
+    <div id="PrimaryNotifier" class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div id="PrimaryNotifierLabel" class="mdc-snackbar__label"
+                 role="status"
+                 aria-live="polite">
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__dismiss">
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="CopyNotifier" class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div id="CopyNotifierLabel" class="mdc-snackbar__label"
+                 role="status"
+                 aria-live="polite">
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button id="CopyButton" type="button" class="mdc-button mdc-snackbar__action">
+                    Copy
+                </button>
+                <button type="button" class="mdc-button mdc-snackbar__dismiss">
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blazor js -->
+    <script src="_framework/blazor.server.js"></script>
+
+    <!-- App js -->
+    <script src="app.bundle.js"></script>
+</body>
+</html>

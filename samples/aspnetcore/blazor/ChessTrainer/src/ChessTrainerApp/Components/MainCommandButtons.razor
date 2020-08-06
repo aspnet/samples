@@ -1,0 +1,14 @@
+﻿@inject NavigationManager NavManager
+
+<!-- A button linking to this project in source control -->
+<!-- This component is injected into the main layout by some pages -->
+<button class="mdc-icon-button" aria-label="Source in Azure DevOps" @onclick="NavigateToSource">
+    <i class="fas fa-code-branch"></i>
+</button>
+
+@code {
+    void NavigateToSource()
+    {
+        NavManager.NavigateTo("https://github.com/mjrousos/ChessTrainer");
+    }
+}

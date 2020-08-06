@@ -1,0 +1,3 @@
+# Ignore wwwroot/ for this solution since all client-side 
+# assets are generated (from sources in /app) at build time.
+wwwroot/

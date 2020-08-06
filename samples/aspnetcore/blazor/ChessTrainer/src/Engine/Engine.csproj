@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>MjrChess.Engine</RootNamespace>
+    <AssemblyName>MjrChess.Engine</AssemblyName>
+  </PropertyGroup>
+
+</Project>

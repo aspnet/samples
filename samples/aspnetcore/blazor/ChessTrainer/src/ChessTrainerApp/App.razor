@@ -1,0 +1,22 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <!-- Use ExpandedRouteView so that pages are able to pass extra parameters to MainLayout. -->
+        <!-- Ideally, we would use something derived from AuthorizeRouteView, but that's not possible because
+             AuthorizeRouteView is sealed (unlike RouteView). Instead, we can just nest the ExpandedRouteView
+             (derived from RouteView) inside a CascadingAuthenticationState to make the authentication state
+             available to descendents. -->
+        <CascadingAuthenticationState>
+            <ExpandedRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </CascadingAuthenticationState>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <!-- Layout view is used in the NotFound case since no routing or extra parameters from pages are needed. -->
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
