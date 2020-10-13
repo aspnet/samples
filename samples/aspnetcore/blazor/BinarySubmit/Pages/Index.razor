@@ -1,0 +1,37 @@
+@page "/"
+@inject IJSRuntime JS
+@using System.IO
+
+<h1>Submit blob</h1>
+
+<button @onclick="SubmitBytes">Submit</button>
+
+@if (message != null)
+{
+    <h2>@message</h2>
+}
+
+@code
+{
+    string message;
+
+    async Task SubmitBytes()
+    {
+        message = "Submitting bytes";
+
+        var jsObject = await JS.InvokeAsync<IJSObjectReference>("getStream");
+        var chunkedStream = new ChunkedStream(jsObject, maxAllowedLength: 3 * 1024 * 1024);
+
+        // Save this file to an exteral store such as a file or blob. Attempting to read the content to
+        // memory can result in performance problems and security vulnerabilites.
+        var downloadDir = Path.Combine(Path.GetTempPath(), "downloads");
+        Directory.CreateDirectory(downloadDir);
+
+        var filePath = Path.Combine(downloadDir, Path.GetRandomFileName());
+        using var tempFile = File.OpenWrite(filePath);
+
+        await chunkedStream.CopyToAsync(tempFile);
+
+        message = "Done submitting bytes";
+    }
+}
