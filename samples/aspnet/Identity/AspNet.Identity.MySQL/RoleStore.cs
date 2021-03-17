@@ -28,9 +28,8 @@ namespace AspNet.Identity.MySQL
         /// instance using the Default Connection string
         /// </summary>
         public RoleStore()
-        {
-            new RoleStore<TRole>(new MySQLDatabase());
-        }
+            : this(new MySQLDatabase())
+        { }
 
         /// <summary>
         /// Constructor that takes a MySQLDatabase as argument 
