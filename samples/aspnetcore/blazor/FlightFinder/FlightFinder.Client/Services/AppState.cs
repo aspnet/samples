@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
+using FlightFinder.Client.Components;
 using FlightFinder.Shared;
 using Microsoft.AspNetCore.Components;
 
@@ -11,9 +13,14 @@ namespace FlightFinder.Client.Services
     {
         // Actual state
         public IReadOnlyList<Itinerary> SearchResults { get; private set; }
+
+        // Flag to indicate search is in progress
         public bool SearchInProgress { get; private set; }
 
+        // shortlist (internal store)
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
+
+        // expose shortlist as a readonly list
         public IReadOnlyList<Itinerary> Shortlist => shortlist;
 
         // Lets components receive change notifications
@@ -22,17 +29,21 @@ namespace FlightFinder.Client.Services
 
         // Receive 'http' instance from DI
         private readonly HttpClient http;
+
+        // constructor with DI
         public AppState(HttpClient httpInstance)
         {
             http = httpInstance;
         }
 
+        // search for flights using Web API
         public async Task Search(SearchCriteria criteria)
         {
             SearchInProgress = true;
             NotifyStateChanged();
 
-            SearchResults = await http.PostJsonAsync<Itinerary[]>("/api/flightsearch", criteria);
+            var response = await http.PostAsJsonAsync("/api/flightsearch", criteria);
+            SearchResults = await response.Content.ReadFromJsonAsync<Itinerary[]>();
             SearchInProgress = false;
             NotifyStateChanged();
         }
