@@ -1,0 +1,55 @@
+﻿@inherits ChessBoardBase
+
+<!-- Displays a chess board -->
+
+<!-- Show black player status -->
+<PlayerStatus WhitePlayer="false" Game="Game" />
+
+<!-- Display the board and hook up mouse event handlers -->
+<div class="boardContainer">
+    <!-- Give the chess board image an ID so that JavaScript can 
+         refer to it to calculate its bounding rectangle -->
+    <img id="@ElementName"
+         draggable="false"
+         class="board"
+         src="images/board.svg"
+         @onmousedown="HandleMouseDown"
+         @onmouseup="HandleMouseUp" />
+    <!-- Display the pieces on the board -->
+    @foreach (var piece in Game.Pieces)
+    {
+        if (piece.Position == null)
+        {
+            continue;
+        }
+        <ChessPieceComponent File="piece.Position.File" Rank="piece.Position.Rank" PieceType="piece.PieceType" />
+    }
+    <!-- Display legal move square decorators -->
+    @foreach (var legalMove in LegalMovesForSelectedPiece)
+    {
+        <SquareDecorator File="legalMove.FinalPosition.File" Rank="legalMove.FinalPosition.Rank" ImageName="LegalMove" />
+    }
+    <!-- Display a square decorator around the selected piece -->
+    @if (SelectedPiece != null)
+    {
+        <SquareDecorator File="SelectedPiece.Position.File" Rank="SelectedPiece.Position.Rank" ImageName="Highlight" />
+    }
+    <!-- Use a square decorator to highlight the last move made -->
+    @if (LastMove != null)
+    {
+        <SquareDecorator File="LastMove.OriginalPosition.File" Rank="LastMove.OriginalPosition.Rank" ImageName="Highlight" />
+        <SquareDecorator File="LastMove.FinalPosition.File" Rank="LastMove.FinalPosition.Rank" ImageName="Highlight" />
+    }
+    <!-- Display a square decorator around an endangered king if a king is in check -->
+    @if (Game.Check)
+    {
+        var checkedKing = Game.Pieces.Single(p => p.PieceType == (Game.WhiteToMove ? ChessPieces.WhiteKing : ChessPieces.BlackKing));
+        <SquareDecorator File="checkedKing.Position.File" Rank="checkedKing.Position.Rank" ImageName="Check" />
+    }
+</div>
+
+<!-- Show white player status -->
+<PlayerStatus WhitePlayer="true" Game="Game" />
+
+<!-- Show game details (move list, etc.) -->
+<GameDetails Game="Game" />

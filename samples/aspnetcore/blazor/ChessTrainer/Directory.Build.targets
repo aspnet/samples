@@ -1,0 +1,11 @@
+<Project>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.2" Condition=" '$(IsPackage)' != 'true' ">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+
+<NavBar>
+    @NavCommandButtons
+</NavBar>
+
+<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust main">
+    <div class="main-content">
+        @Body
+    </div>
+</div>
+
+@code {
+    // This layout page is meant to be used with `ExpandedRouteView`
+    // so that it can receive both a body and 'NavCommandButtons'
+    // content from pages.
+    /// <summary>
+    /// Gets or sets custom child content for inclusion in the nav bar.
+    /// </summary>
+    [Parameter]
+    public RenderFragment? NavCommandButtons { get; set; }
+}

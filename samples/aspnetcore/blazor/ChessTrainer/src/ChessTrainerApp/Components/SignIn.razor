@@ -1,0 +1,16 @@
+﻿<!-- Component with a sign in button or a personalized greeting and sign out button, depending on authetication state -->
+<div>
+    <AuthorizeView>
+        <Authorized>
+            Welcome, @context.User.Identity.Name
+            <a class="mdc-top-app-bar__action-item mdc-button" aria-label="Sign out" href="AzureADB2C/Account/SignOut">Sign out</a>
+        </Authorized>
+        <Authorizing>
+            <span>Authorizing...</span>
+        </Authorizing>
+        <NotAuthorized>
+            <a class="mdc-top-app-bar__action-item mdc-button" aria-label="Sign in" href="AzureADB2C/Account/SignIn">Sign in</a>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>MjrChess.Trainer.Data</RootNamespace>
+    <AssemblyName>MjrChess.Trainer.Data</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="3.1.0-preview01" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
+
+    <ProjectReference Include="..\ChessTrainer.Common\ChessTrainer.Common.csproj" />
+    <ProjectReference Include="..\Engine\Engine.csproj" />
+  </ItemGroup>
+</Project>

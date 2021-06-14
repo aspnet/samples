@@ -1,0 +1,67 @@
+﻿<!-- Displays a chess piece (using CSS to position it on a chess board in the proper square) -->
+<img class="@Class" src="images/@ImageSource" />
+
+@code {
+    const string SpriteSource = "Chess_Pieces_Sprite.svg";
+
+    public ChessPieceComponent() { }
+
+    public ChessPieceComponent(ChessPieces pieceType, int file, int rank)
+    {
+        PieceType = pieceType;
+        File = file;
+        Rank = rank;
+    }
+
+    /// <summary>
+    /// Gets or sets the piece type to display.
+    /// </summary>
+    [Parameter]
+    public ChessPieces PieceType { get; set; }
+
+    /// <summary>
+    /// Gets or sets the file of the chess board the piece is on.
+    /// </summary>
+    [Parameter]
+    public int File { get; set; }
+
+    /// <summary>
+    /// Gets or sets the rank of the chess board the piece is on.
+    /// </summary>
+    [Parameter]
+    public int Rank { get; set; }
+
+    /// <summary>
+    /// Gets the proper CSS class to position the piece in the correct board position.
+    /// </summary>
+    private string Class => $"piece {ChessFormatter.FileToString(File)}{ChessFormatter.RankToString(Rank)}";
+
+    /// <summary>
+    /// Gets the image source by combining the image file name with the correct sgv view for the piece type.
+    /// </summary>
+    private string ImageSource => $"{SpriteSource}#{SvgView}";
+
+    /// <summary>
+    /// Gets the correct sgv view offset based on piece type.
+    /// </summary>
+    string SvgView =>
+        PieceType switch
+        {
+            ChessPieces.WhiteKing => "svgView(viewBox(0, 0, 45, 45))",
+            ChessPieces.WhiteQueen => "svgView(viewBox(45, 0, 45, 45))",
+            ChessPieces.WhiteBishop => "svgView(viewBox(90, 0, 45, 45))",
+            ChessPieces.WhiteKnight => "svgView(viewBox(135, 0, 45, 45))",
+            ChessPieces.WhiteRook => "svgView(viewBox(180, 0, 45, 45))",
+            ChessPieces.WhitePawn => "svgView(viewBox(225, 0, 45, 45))",
+
+            ChessPieces.BlackKing => "svgView(viewBox(0, 45, 45, 45))",
+            ChessPieces.BlackQueen => "svgView(viewBox(45, 45, 45, 45))",
+            ChessPieces.BlackBishop => "svgView(viewBox(90, 45, 45, 45))",
+            ChessPieces.BlackKnight => "svgView(viewBox(135, 45, 45, 45))",
+            ChessPieces.BlackRook => "svgView(viewBox(180, 45, 45, 45))",
+            ChessPieces.BlackPawn => "svgView(viewBox(225, 45, 45, 45))",
+
+            _ => string.Empty,
+        };
+        
+}

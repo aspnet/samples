@@ -1,0 +1,29 @@
+﻿@using MjrChess.Engine.Utilities
+
+<!-- An image to overlay on a chess board square (for example, a red outline to indicate check) -->
+<img class="@Class" src="images/@($"{ImageName}.svg")" />
+
+@code {
+    /// <summary>
+    /// Get or set the file the decorator shuld appear on.
+    /// </summary>
+    [Parameter]
+    public int File { get; set; }
+
+    /// <summary>
+    /// Get or set the rank the decorator should appear on.
+    /// </summary>
+    [Parameter]
+    public int Rank { get; set; }
+
+    /// <summary>
+    /// Get or set the image to use for the decorator. Different square decorators (legal move, check, etc.) will have different images.
+    /// </summary>
+    [Parameter]
+    public string? ImageName { get; set; }
+
+    /// <summary>
+    /// CSS classes to position the decorator in the right place on the board.
+    /// </summary>
+    public string Class => $"boardSquareDecorator {ChessFormatter.FileToString(File)}{ChessFormatter.RankToString(Rank)}";
+}

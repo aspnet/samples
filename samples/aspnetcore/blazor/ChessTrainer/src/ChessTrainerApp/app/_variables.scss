@@ -1,0 +1,15 @@
+﻿// Set MDC theme colors
+
+$mdc-theme-primary: #2e7d32; // Green 800
+$mdc-theme-on-primary: #ffffff;
+$mdc-theme-secondary: #424242; // Grey 800
+$mdc-theme-on-secondary: #ffffff;
+$mdc-theme-text-primary-on-background: #000000;
+$mdc-theme-text-secondary-on-background: #424242; // Grey 800
+$mdc-theme-surface: #fdfefb;
+$mdc-theme-background: #424242;
+$mdc-list-item-primary-text-ink-color: #000000;
+$mdc-list-item-secondary-text-ink-color: #424242; // Grey 800
+
+// https://github.com/material-components/material-components-web/issues/4699
+$mdc-snackbar-action-ink-color: #2e7d32;

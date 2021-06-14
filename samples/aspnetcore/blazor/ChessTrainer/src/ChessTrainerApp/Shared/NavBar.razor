@@ -1,0 +1,61 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+@using MjrChess.Trainer.Components 
+@inherits MaterialDesignComponentBase
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavManager
+
+<!-- Top-of-page bar with a button to expand the menu drawer, sign-in component, and page-specific controls -->
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <!-- MDC icon button using the 'menu' hamburger icon -->
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" @onclick="ToggleMainMenuDrawer">menu</button>
+            <span class="mdc-top-app-bar__title link" @onclick="NavigateHome">Chess Trainer</span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <!-- Right-aligned page-specific content and sign-in component -->
+            @ChildContent
+            <SignIn></SignIn>
+        </section>
+    </div>
+</header>
+
+<!-- Menu drawer with site navigation links -->
+<!-- Links use FontAwesome icons (the MDC icons are convenient but don't offer as large of a selection) -->
+<aside id="mainMenuDrawer" class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust">
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="" aria-current="page">
+                <i class="fas fa-chess-king fa-fw fa-lg mdc-list-item__graphic"></i>
+                <span class="mdc-list-item__text">Train</span>
+            </a>
+            <a class="mdc-list-item" href="play">
+                <i class="fas fa-chess-queen fa-fw fa-lg mdc-list-item__graphic"></i>
+                <span class="mdc-list-item__text">Play</span>
+            </a>
+            <a class="mdc-list-item" href="about">
+                <i class="fas fa-question fa-fw fa-lg mdc-list-item__graphic"></i>
+                <span class="mdc-list-item__text">About</span>
+            </a>
+        </nav>
+    </div>
+</aside>
+
+@code {
+    /// <summary>
+    /// Additional buttons the current page wishes to show on the nav bar.
+    /// </summary>
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    async Task ToggleMainMenuDrawer()
+    {
+        // Use JS to toggle an MDC drawer
+        await JSRuntime.InvokeVoidAsync("toggleDrawer", "mainMenuDrawer");
+    }
+
+    void NavigateHome()
+    {
+        NavManager.NavigateTo("");
+    }
+}

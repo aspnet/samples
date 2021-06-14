@@ -1,0 +1,72 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+
+<!-- Inherit from MaterialDesignComponentBase so that MDC elements are automatically attached -->
+@inherits MaterialDesignComponentBase
+
+<!-- Displays details on a game, primarily the move list -->
+<div class="mdc-layout-grid nested-vertical-grid nested-tight-grid">
+    <div class="mdc-layout-grid__inner">
+        <!-- Display move history -->
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+            @((MarkupString)GetFormattedMoves())
+        </div>
+
+        <!-- Display buttons for showing/copying game state in PGN or FEN notations -->
+        <div class="
+             mdc-layout-grid__cell
+             mdc-layout-grid__cell--span-4
+             mdc-layout-grid__cell--span-8-tablet
+             mdc-layout-grid--align-right">
+            <button class="mdc-button mdc-button--raised pull-right" @onclick="CopyPGN">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">
+                    PGN
+                </span>
+            </button>
+            <button class="mdc-button mdc-button--raised pull-right" @onclick="CopyFEN">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">
+                    FEN
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!; // Injected service, so no initialization needed
+
+    /// <summary>
+    /// Gets or sets the game to show details for.
+    /// </summary>
+    [Parameter]
+    public ChessGame? Game { get; set; }
+
+    // Get move list from game and format last move as bold
+    private string GetFormattedMoves()
+    {
+        var moves = Game?.GetMoveList() ?? string.Empty;
+        var lastSpace = moves.LastIndexOf(' ');
+        if (lastSpace > 0)
+        {
+            moves = $"{moves.Substring(0, lastSpace + 1)}<b>{moves.Substring(lastSpace + 1)}</b>";
+        }
+
+        return moves;
+    }
+
+    // Get PGN description of the game and display it with the JS notifyWithCopy toast method
+    private async Task CopyPGN()
+    {
+        var pgn = Game?.GetPGN();
+        await JSRuntime.InvokeVoidAsync("notifyWithCopy", pgn, "Copied PGN to clipboard");
+    }
+
+    // Get FEN description of the game and display it with the JS notifyWithCopy toast method
+    private async Task CopyFEN()
+    {
+        var fen = Game?.GetFEN();
+        await JSRuntime.InvokeVoidAsync("notifyWithCopy", fen, "Copied FEN to clipboard");
+    }
+}

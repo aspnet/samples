@@ -1,0 +1,298 @@
+@import "./variables";
+@import "./loadingSpinner";
+@import "./puzzleInfo";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/chips/mdc-chips";
+@import "@material/select/mdc-select";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/snackbar/mdc-snackbar";
+@import "@material/typography/mdc-typography";
+
+/* Make sure the app bar shows over the menu drawer */
+.mdc-top-app-bar {
+    z-index: 7;
+}
+
+.main {
+    height: calc(100% - 64px);
+}
+
+.card-title {
+    display: flex;
+}
+
+.card-title .mdc-icon-button {
+    padding: 0px;
+    margin-top: 8px;
+}
+
+.mdc-typography--subtitle2 {
+    color: $mdc-theme-text-secondary-on-background;
+    margin-top: 0px;
+}
+
+.mdc-typography--subtitle2 svg {
+    margin: 0px 0px 1px 3px;
+    color: $mdc-theme-text-secondary-on-background;
+}
+
+.mdc-text-field .mdc-floating-label--float-above {
+    transform: translateY(-106%) scale(0.75) !important;
+}
+
+.mdc-info-chip-small {
+    height: 22px;
+    font-size: .75rem;
+    margin-top: 10px;
+    padding: 0px 10px 0px 10px;
+    cursor: default;
+}
+
+.mdc-card-body .mdc-list-item {
+    padding: 0px;
+}
+
+.mdc-card .mdc-list-item__text {
+    color: $mdc-list-item-primary-text-ink-color;
+}
+
+.mdc-card .mdc-list-item__secondary-text {
+    color: $mdc-list-item-secondary-text-ink-color;
+}
+
+.mdc-card .mdc-icon-button {
+    color: $mdc-list-item-primary-text-ink-color;
+}
+
+.mdc-text-field--dense {
+    width: 100%;
+}
+
+.mdc-drawer-app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+}
+
+.main-content {
+    overflow: auto;
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mdc-top-app-bar__title a {
+    color: white;
+    text-decoration: none;
+}
+
+.playerName h2 {
+    font-weight: normal;
+    display: inline;
+    vertical-align: top;
+}
+
+.activePlayer h2 {
+    font-weight: bold;
+    color: $mdc-theme-primary;
+}
+
+.selectable-list-item {
+    padding-left: 4px;
+}
+
+/* Preserve white space in snackbar labels */
+.mdc-snackbar__label {
+    white-space: pre-wrap;
+}
+
+/* Resize snackbar dismiss text size to match normal button text size */
+.mdc-snackbar__dismiss.mdc-snackbar__dismiss {
+    font-size: 14px;
+    padding: 0px 8px 0px 8px;
+}
+
+/* Make sure elements that act as link have a matching cursor */
+.link:hover {
+    cursor: pointer;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+body button {
+    margin: 0px 0px 5px 0px;
+}
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+/* Nested vertical grids can occupy the entire row of the parent grid */
+.nested-vertical-grid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/* Nested tight grids can occupy the entire row of the parent grid and have small offset vertically */
+.nested-tight-grid {
+    padding: 5px 0px 0px 0px;
+}
+
+.boardContainer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+}
+
+.board {
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+// Style for square decorators like check and legal move outlines
+.boardSquareDecorator {
+    pointer-events: none;
+    width: 12.5%;
+    height: 12.5%;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+}
+
+// Style for captured pieces shown next to board
+.capturedPieces {
+    min-height: 32px;
+}
+
+.capturedPieces .piece {
+    position: relative;
+    vertical-align: bottom;
+    top: auto;
+    left: auto;
+    width: 30px;
+    height: 30px;
+    margin-top: -3.6px; // Line up with <h2> text
+}
+
+// Style for chess pieces on a chess board
+.piece {
+    pointer-events: none;
+    width: 12.5%;
+    height: 12.5%;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+}
+
+// Styles for positioning pieces on different board squares
+.a1 { top: 87.5%; left: 0%;}
+.a2 { top: 75%; left: 0%;}
+.a3 { top: 62.5%; left: 0%;}
+.a4 { top: 50%; left: 0%;}
+.a5 { top: 37.5%; left: 0%;}
+.a6 { top: 25%; left: 0%;}
+.a7 { top: 12.5%; left: 0%;}
+.a8 { top: 0%; left: 0%;}
+
+.b1 { top: 87.5%; left: 12.5%;}
+.b2 { top: 75%; left: 12.5%;}
+.b3 { top: 62.5%; left: 12.5%;}
+.b4 { top: 50%; left: 12.5%;}
+.b5 { top: 37.5%; left: 12.5%;}
+.b6 { top: 25%; left: 12.5%;}
+.b7 { top: 12.5%; left: 12.5%;}
+.b8 { top: 0%; left: 12.5%;}
+
+.c1 { top: 87.5%; left: 25%;}
+.c2 { top: 75%; left: 25%;}
+.c3 { top: 62.5%; left: 25%;}
+.c4 { top: 50%; left: 25%;}
+.c5 { top: 37.5%; left: 25%;}
+.c6 { top: 25%; left: 25%;}
+.c7 { top: 12.5%; left: 25%;}
+.c8 { top: 0%; left: 25%;}
+
+.d1 { top: 87.5%; left: 37.5%;}
+.d2 { top: 75%; left: 37.5%;}
+.d3 { top: 62.5%; left: 37.5%;}
+.d4 { top: 50%; left: 37.5%;}
+.d5 { top: 37.5%; left: 37.5%;}
+.d6 { top: 25%; left: 37.5%;}
+.d7 { top: 12.5%; left: 37.5%;}
+.d8 { top: 0%; left: 37.5%;}
+
+.e1 { top: 87.5%; left: 50%;}
+.e2 { top: 75%; left: 50%;}
+.e3 { top: 62.5%; left: 50%;}
+.e4 { top: 50%; left: 50%;}
+.e5 { top: 37.5%; left: 50%;}
+.e6 { top: 25%; left: 50%;}
+.e7 { top: 12.5%; left: 50%;}
+.e8 { top: 0%; left: 50%;}
+
+.f1 { top: 87.5%; left: 62.5%;}
+.f2 { top: 75%; left: 62.5%;}
+.f3 { top: 62.5%; left: 62.5%;}
+.f4 { top: 50%; left: 62.5%;}
+.f5 { top: 37.5%; left: 62.5%;}
+.f6 { top: 25%; left: 62.5%;}
+.f7 { top: 12.5%; left: 62.5%;}
+.f8 { top: 0%; left: 62.5%;}
+
+.g1 { top: 87.5%; left: 75%;}
+.g2 { top: 75%; left: 75%;}
+.g3 { top: 62.5%; left: 75%;}
+.g4 { top: 50%; left: 75%;}
+.g5 { top: 37.5%; left: 75%;}
+.g6 { top: 25%; left: 75%;}
+.g7 { top: 12.5%; left: 75%;}
+.g8 { top: 0%; left: 75%;}
+
+.h1 { top: 87.5%; left: 87.5%;}
+.h2 { top: 75%; left: 87.5%;}
+.h3 { top: 62.5%; left: 87.5%;}
+.h4 { top: 50%; left: 87.5%;}
+.h5 { top: 37.5%; left: 87.5%;}
+.h6 { top: 25%; left: 87.5%;}
+.h7 { top: 12.5%; left: 87.5%;}
+.h8 { top: 0%; left: 87.5%;}
+
+.unplaced {
+    visibility: hidden;
+}
+
+// MDC select elements need their width set explicitly
+.full-width-input {
+    width: 100%;
+}
+
+.vertical-form {
+    margin-bottom: 8px;
+}

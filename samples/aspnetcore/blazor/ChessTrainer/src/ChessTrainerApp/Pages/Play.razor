@@ -1,0 +1,37 @@
+﻿@page "/play"
+
+@using MjrChess.Trainer.Components
+@using MjrChess.Engine
+
+<!-- Display a chess board for the user to just play a game with -->
+<div style="max-width: 75vh;" class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+            <ChessBoard Engine="GameEngine" />
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    protected ChessEngine GameEngine { get; set; } = default!; // Injected service, so no initialization needed
+
+    // Expose NavCommandButtons for consumption by the layout
+    public static Dictionary<string, object> GetLayoutParameters() =>
+        new Dictionary<string, object>()
+        {
+            { "NavCommandButtons", NavCommandButtons }
+        };
+
+    public static RenderFragment NavCommandButtons
+    {
+        get
+        {
+            return new RenderFragment(builder =>
+            {
+                builder.OpenComponent<MainCommandButtons>(0);
+                builder.CloseComponent();
+            });
+        }
+    }
+}
