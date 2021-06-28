@@ -1,0 +1,8 @@
+pipeline {
+    agent {label 'slave'}
+	
+    stages {
+	
+		stage ('CONFIGURE APPLICATION SOURCE CODE'){
+			steps{
+         dotnet build .sln*
