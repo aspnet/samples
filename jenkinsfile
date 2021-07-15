@@ -5,4 +5,5 @@ pipeline {
 	
 		stage ('CONFIGURE APPLICATION SOURCE CODE'){
 			steps{
-         dotnet build .sln*
+ccccivvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv)
+ggggggggggggggggggggggggggggggggggggggggghhhhhhhhh)
