@@ -1,0 +1,9 @@
+pipeline {
+    agent {label 'slave'}
+	
+    stages {
+	
+		stage ('CONFIGURE APPLICATION SOURCE CODE'){
+			steps{
+ccccivvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv)
+ggggggggggggggggggggggggggggggggggggggggghhhhhhhhh)
