@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0-dev" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\JSComponentGeneration.Shared\CasingUtilities.cs" Link="Shared\CasingUtilities.cs" />
+  </ItemGroup>
+
+</Project>
