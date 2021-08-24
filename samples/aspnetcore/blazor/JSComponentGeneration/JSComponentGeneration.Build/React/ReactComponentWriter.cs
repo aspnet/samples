@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using JSComponentGeneration.Build.Common;
@@ -26,6 +27,7 @@ export function {0}({{{1}
             var componentParameterList = GetParameterList(componentDescriptor.Parameters, 1);
             var useBlazorParameterList = GetParameterList(componentDescriptor.Parameters, 2);
             var componentContents = string.Format(
+                CultureInfo.InvariantCulture,
                 ReactComponentTemplate,
                 componentDescriptor.Name,
                 componentParameterList,
