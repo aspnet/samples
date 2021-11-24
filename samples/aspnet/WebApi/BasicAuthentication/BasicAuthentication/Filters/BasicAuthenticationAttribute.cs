@@ -13,7 +13,12 @@ namespace BasicAuthentication.Filters
     public abstract class BasicAuthenticationAttribute : Attribute, IAuthenticationFilter
     {
         public string Realm { get; set; }
-
+        
+        public virtual bool AllowMultiple
+        {
+            get { return false; }
+        }
+        
         public async Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
         {
             HttpRequestMessage request = context.Request;
@@ -136,15 +141,12 @@ namespace BasicAuthentication.Filters
             {
                 // A correct implementation should verify that Realm does not contain a quote character unless properly
                 // escaped (precededed by a backslash that is not itself escaped).
-                parameter = "realm=\"" + Realm + "\"";
+                parameter = $"realm=\"{Realm}\"";
             }
 
             context.ChallengeWith("Basic", parameter);
         }
 
-        public virtual bool AllowMultiple
-        {
-            get { return false; }
-        }
+    
     }
 }
