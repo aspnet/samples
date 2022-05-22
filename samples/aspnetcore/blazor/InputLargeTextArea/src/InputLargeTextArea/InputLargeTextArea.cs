@@ -99,7 +99,7 @@ namespace Microsoft.AspNetCore.Components.Forms
                 // 0 length streams/textareas aren't permitted from JS->.NET Streaming Interop.
                 if (jsException.InnerException is ArgumentOutOfRangeException outOfRangeException &&
                     outOfRangeException.ActualValue is not null &&
-                    long.TryParse(outOfRangeException.ActualValue.ToString(), out var actualLength) &&
+                    outOfRangeException.ActualValue is long actualLength &&
                     actualLength == 0)
                 {
                     return StreamReader.Null;
