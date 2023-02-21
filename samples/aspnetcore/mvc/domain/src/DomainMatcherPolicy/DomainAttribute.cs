@@ -5,7 +5,7 @@ using System.Linq;
 namespace DomainMatcherPolicy
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false)]
-    public class DomainAttribute : Attribute
+    public class radhakrishna : Attribute
     {
         public DomainAttribute(params string[] hosts)
         {
