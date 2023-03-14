@@ -1,11 +1,13 @@
 ﻿using FlightFinder.Shared;
+using System.Collections.Generic;
 
 namespace FlightFinder.Server
 {
     public class SampleData
     {
-        public readonly static Airport[] Airports = new[]
-        {
+
+        public readonly static List<Airport> Airports = new List<Airport>() {
+
             new Airport { Code = "ATL", DisplayName = "Hartsfield–Jackson Atlanta International" },
             new Airport { Code = "PEK", DisplayName = "Beijing Capital International" },
             new Airport { Code = "DXB", DisplayName = "Dubai International" },
@@ -56,20 +58,25 @@ namespace FlightFinder.Server
             new Airport { Code = "NRT", DisplayName = "Narita International" },
             new Airport { Code = "MSP", DisplayName = "Minneapolis/St Paul International" },
             new Airport { Code = "DOH", DisplayName = "Hamad International" },
+
+
         };
-        
-        public readonly static string[] Airlines = new[]
+
+
+        public readonly static List<string> Airlines = new List<string>()
         {
-            "American Airlines",
-            "British Airways",
-            "Delta",
-            "Emirates",
-            "Etihad",
-            "JetBlue",
-            "KLM",
-            "Singapore Airways",
-            "Qantas",
-            "Virgin Atlantic",
+                "American Airlines",
+                "British Airways",
+                "Delta",
+                "Emirates",
+                "Etihad",
+                "JetBlue",
+                "KLM",
+                "Singapore Airways",
+                "Qantas",
+                "Virgin Atlantic",
         };
+
+
     }
 }
