@@ -96,10 +96,25 @@ namespace SQLMembership_Identity_OWIN.IdentityAccount
             {
                 return;
             }
-            var currentApplicationId = new ApplicationDbContext().Applications.SingleOrDefault(x => x.ApplicationName == "/").ApplicationId;
+
+            Guid? currentApplicationId = null;
+            using (var ctx = new ApplicationDbContext())
+            {
+                currentApplicationId = new ApplicationDbContext().Applications
+                    .SingleOrDefault(x => x.ApplicationName == "/")?.ApplicationId;
+                if (currentApplicationId == null)
+                {
+                    ctx.Applications.Add(new Application()
+                    {
+                        ApplicationId = (Guid) (currentApplicationId = Guid.NewGuid()),
+                        ApplicationName = "/"
+                    });
+                    ctx.SaveChanges();
+                }
+            }
 
             var manager = new UserManager();
-            var user = new User() { UserName = Username.Text, ApplicationId = currentApplicationId, LoweredUserName = Username.Text.ToLower() };
+            var user = new User() { UserName = Username.Text, ApplicationId = (Guid) currentApplicationId, LoweredUserName = Username.Text.ToLower() };
 
             IdentityResult result = manager.Create(user);
 
