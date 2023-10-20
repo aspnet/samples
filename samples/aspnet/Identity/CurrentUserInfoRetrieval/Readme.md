@@ -1,4 +1,4 @@
-# ASP.net Self Contained Pages for Troubleshooting Windows Integrated Authentication issues on IIS
+# ASP.NET Self Contained Pages for Troubleshooting Windows Integrated Authentication issues on IIS
 
 Configuring Windows Integrated Authentication can be a complex endeavor to configure correctly on an IIS web-server which is part of an Active Directory domain. Troubleshooting issues with credential authentication via Windows Integrated Authentication and delegation of credentials scenarios from front-end to back-end servers is often cumbersome. The two pages included in this sample are intended to allow the collection of diagnostic data with minimal intrusion and configuration overhead in production environments.
 
