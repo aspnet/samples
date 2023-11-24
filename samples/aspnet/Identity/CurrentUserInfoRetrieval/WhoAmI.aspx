@@ -26,7 +26,7 @@
             if (authHeader !=null && authHeader.StartsWith("Negotiate YII", StringComparison.OrdinalIgnoreCase))
                 //append Kerberos to the authentication method
                 lblAuthMethod.Text = lblAuthMethod.Text + " (KERBEROS)";
-            else if(authHeader != null && authHeader.StartsWith("NTLM", StringComparison.OrdinalIgnoreCase))
+            else if(authHeader != null && authHeader.StartsWith("Negotiate TlRM", StringComparison.OrdinalIgnoreCase))
                 //append NTLM to the authentication method
                 lblAuthMethod.Text = lblAuthMethod.Text + " (NTLM - fallback)" ;
             else
