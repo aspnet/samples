@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  %>
+<%@ Page Language="C#" AutoEventWireup="true" Async="true"  %>
 
 <script runat="server">
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
         //check authentication
         if (Context.User.Identity.IsAuthenticated)
         {
@@ -25,7 +26,7 @@
 
         if (String.IsNullOrEmpty(txtSiteAddress.Text))
         {
-            targetUrl = "http://www.linqto.me/SamplePage.hmtl";
+            targetUrl = "http://www.linqto.me/SamplePage.html";
         }
         else
         {
@@ -36,11 +37,16 @@
         txtScrappedContent.Text = ScrapPage(targetUrl, ckcUseAuthentication.Checked);
     }
 
+    
+
     public string ScrapPage(string targetUrl, bool useAuthentication, uint timeOut = 5000)
     {
         //we will not do error checking!
         System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(targetUrl)
             as System.Net.HttpWebRequest;
+
+        //get a hold of the network credentials
+        var credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
 
         //check if need to send credentials
         if (useAuthentication)
@@ -50,7 +56,7 @@
             //get the credentials from the current thread
             //if no impersonation: it will use the app pool account
             //if impersonation is used: we will impersonate the authenticated user's identity
-            request.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+            request.Credentials = credentials;
 
             //have the server in the backend also authenticate on the response to the request
             request.AuthenticationLevel = System.Net.Security.AuthenticationLevel.MutualAuthRequested;
@@ -81,6 +87,7 @@
             if (ckcUseAuthentication.Checked)
             {
                 responseText.Append(" Using authentication: \n");
+                responseText.Append(" Authenticating as: " + credentials.UserName + "\n");
             }
 
             //if the response is not HTML
@@ -106,13 +113,13 @@
                         responseEncodingCode = Encoding.UTF8;
                     }
 
-                    System.IO.StreamReader readResponseStream = new System.IO.StreamReader(responseStream, responseEncodingCode);
-                    responseText.Append(readResponseStream.ReadToEnd());
-
-                    responseText.Append("\n: End response content.");
-
-
                 }
+
+                //read the response with the appropriate encoding
+                System.IO.StreamReader readResponseStream = new System.IO.StreamReader(responseStream, responseEncodingCode);
+                responseText.Append(readResponseStream.ReadToEnd());
+
+                responseText.Append("\n: End response content.");
             }
             else
             {
@@ -121,7 +128,7 @@
 
             return responseText.ToString();
 
-        }catch(System.Net.WebException we)
+        } catch (System.Net.WebException we)
         {
             return "Error encountered: " + we.Message;
         }
@@ -135,7 +142,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Scrapper Test Page - self contained</title>
     <style type="text/css">
         body{
             padding: 10px;
@@ -229,10 +236,10 @@
             <br />
             <asp:TextBox ID="txtScrappedContent" runat="server" TextMode="MultiLine" Height="700px" Width="750px"
                 EnableViewState="false" CssClass="textBoxLarge" />
-
             <br />
             <br />
             <asp:Button ID="cmdScrapPage" Text="Scrap Page" runat="server" OnClick="cmdScrapPage_Click" CssClass="roundButton blueButton" />
+            
         </div>
     </form>
 </body>
