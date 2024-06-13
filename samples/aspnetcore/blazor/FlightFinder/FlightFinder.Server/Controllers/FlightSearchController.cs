@@ -42,6 +42,6 @@ namespace FlightFinder.Server.Controllers
         }
 
         private string RandomAirline()
-            => SampleData.Airlines[new Random().Next(SampleData.Airlines.Length)];
+            => SampleData.Airlines[new Random().Next(SampleData.Airlines.Count)];
     }
 }
