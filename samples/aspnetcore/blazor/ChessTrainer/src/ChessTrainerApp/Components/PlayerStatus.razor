@@ -1,0 +1,96 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+
+<!-- Inherit from MaterialDesignComponentBase so that MDC elements are automatically attached -->
+@inherits MaterialDesignComponentBase
+
+<!-- Show information about a player in a chess game -->
+<div class="mdc-layout-grid nested-tight-grid">
+    <div class="mdc-layout-grid__inner">
+        <!-- Display player name -->
+        <div class="
+             mdc-layout-grid__cell
+             mdc-layout-grid__cell--span-4
+             playerName 
+             @(((Game?.WhiteToMove == WhitePlayer) && Game?.Result == GameResult.Ongoing) ? "activePlayer" : "")">
+            <h2>@(WhitePlayer ? Game?.WhitePlayer : Game?.BlackPlayer)</h2>
+        </div>
+
+        <div class="
+             capturedPieces
+             playerName
+             mdc-layout-grid__cell
+             mdc-layout-grid__cell--span-8-desktop
+             mdc-layout-grid__cell--span-4-tablet
+             mdc-layout-grid__cell--span-4-phone
+             mdc-layout-grid--align-right">
+            <!-- Display pieces the player has lost -->
+            @foreach (var piece in MissingPieces)
+            {
+                <ChessPieceComponent PieceType="piece" />
+            }
+
+            <!-- Display the player's point advantage -->
+            <h2>@PlayerAdvantage</h2>
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>
+    /// Gets or sets a value indicating whether the player controls the white pieces.
+    /// </summary>
+    [Parameter]
+    public bool WhitePlayer { get; set; }
+
+    /// <summary>
+    /// Gets or sets the game being played.
+    /// </summary>
+    [Parameter]
+    public ChessGame? Game { get; set; }
+
+    /// <summary>
+    /// Gets the player's point advantage.
+    /// </summary>
+    private string PlayerAdvantage
+    {
+        get
+        {
+            if (Game is null)
+            {
+                return string.Empty;
+            }
+
+            // Retrieve advantage from the game
+            var advantage = WhitePlayer ? Game.WhiteAdvantage : -Game.WhiteAdvantage;
+            return advantage > 0 ? $"+{advantage}" : string.Empty;
+        }
+    }
+
+    /// <summary>
+    /// Gets a list of the pieces the player has lost.
+    /// </summary>
+    private IEnumerable<ChessPieces> MissingPieces
+    {
+        get
+        {
+            if (Game is null)
+            {
+                return Enumerable.Empty<ChessPieces>();
+            }
+
+            // Compare the player's starting pieces with those they still have in play
+            var startingPieces = (WhitePlayer ? ChessFormatter.StartingWhitePieces : ChessFormatter.StartingBlackPieces).ToList();
+            var currentPieces = Game.Pieces.Select(p => p.PieceType).Where(p => ChessFormatter.IsPieceWhite(p) == WhitePlayer);
+
+            foreach (var piece in currentPieces)
+            {
+                if (startingPieces.Contains(piece))
+                {
+                    startingPieces.Remove(piece);
+                }
+            }
+
+            return startingPieces;
+        }
+    }
+}

@@ -1,0 +1,157 @@
+﻿@using MjrChess.Engine 
+@using MjrChess.Trainer.BlazorExtensions
+@using MjrChess.Trainer.Models
+
+<!-- Inherit from MaterialDesignComponentBase so that MDC elements are automatically attached -->
+@inherits MaterialDesignComponentBase
+
+<!-- A component with overview information about a given puzzle -->
+@if (Puzzle != null)
+{
+    <div class="mdc-card">
+        <div>
+            <!-- Show player names -->
+            <h2 class="mdc-typography mdc-typography--headline6">
+                <ChessPieceComponent PieceType="ChessPieces.WhitePawn" File="7" /> @(Puzzle.WhitePlayerName??"White Player")
+                v.
+                <ChessPieceComponent PieceType="ChessPieces.BlackPawn" File="7" /> @(Puzzle.BlackPlayerName??"Black Player")
+            </h2>
+
+            <!-- When and where the game was played and, if available, a link to the game -->
+            <h3 class="mdc-typography mdc-typography--subtitle2">
+                @Description
+                @if (!string.IsNullOrWhiteSpace(Puzzle.GameUrl))
+                {
+                    <a href="@Puzzle.GameUrl" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                }
+            </h3>
+        </div>
+
+        <!-- Summarize what happened in the game the puzzle was taken from and challenge the user to find the best move -->
+        @if (Puzzle.IncorrectMove != null)
+        {
+            <div class="mdc-typography mdc-typography--body2">
+                In this position, @(Puzzle.WhiteToMove ? "white" : "black") blundered by playing <strong>@(Puzzle.IncorrectMove.ToString())</strong>. Can you do better?
+            </div>
+        }
+        else
+        {
+            <div class="mdc-typography mdc-typography--body2">
+                In this position, @(Puzzle.WhiteToMove ? "white" : "black") successfully took advantage of a poor move by @(Puzzle.WhiteToMove ? "black" : "white").
+            </div>
+        }
+        <br />
+        <div class="mdc-typography mdc-typography--body2">
+            Find the best move for @(Puzzle.WhiteToMove ? "white" : "black")!
+        </div>
+
+        <!-- Once the user has attempted the puzzle, show status indicating whether they're correct or not -->
+        @switch (PuzzleState)
+        {
+            case PuzzleState.Solved:
+                <div>
+                    <h1 class="mdc-typography mdc-typography--headline4 puzzleMessage correctMessage">
+                        <i class="material-icons" aria-hidden="true">check</i>
+                        Correct
+                    </h1>
+                </div>
+                break;
+            case PuzzleState.Missed:
+                <div>
+                    <h1 class="mdc-typography mdc-typography--headline4 puzzleMessage incorrectMessage">
+                        <i class="material-icons md-48" aria-hidden="true">clear</i>
+                        Incorrect
+                    </h1>
+                </div>
+                break;
+            case PuzzleState.Revealed:
+                <div>
+                    @if (PuzzleEngine != null)
+                    {
+                        <h1 class="mdc-typography mdc-typography--headline4 puzzleMessage">
+                        <!-- Show the last move made after revealing instead of Puzzle.Solution
+                             since Puzzle.Solution only includes the piece and where to move it
+                             (without check or checkmate information). -->
+                            @PuzzleEngine.Game.Moves.LastOrDefault()
+                        </h1>
+                    }
+                </div>
+                break;
+        }
+
+        <!-- Buttons to go to the next puzzle, replay a puzzle, or get help, depending on the current puzzle's state -->
+        <!-- The onclick events for the buttons invoke callback functions a parent component can set to specify what should happen -->
+        <div class="mdc-card__actions mdc-card__actions--full-bleed mdc-layout-grid--align-right">
+            @switch (PuzzleState)
+            {
+                case PuzzleState.Solved:
+                case PuzzleState.Revealed:
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnReset?.Invoke()">replay</button>
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnNext?.Invoke()">skip_next</button>
+                    break;
+                case PuzzleState.Missed:
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnReset?.Invoke()">replay</button>
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnReveal?.Invoke()">help_outline</button>
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnNext?.Invoke()">skip_next</button>
+                    break;
+                case PuzzleState.Ongoing:
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnReveal?.Invoke()">help_outline</button>
+                    <button class="mdc-icon-button mdc-card__action mdc-card__action--icon material-icons pull-right" @onclick="() => OnNext?.Invoke()">skip_next</button>
+                    break;
+            }
+        </div>
+    </div>
+}
+
+@code {
+    /// <summary>
+    /// Gets or sets the puzzle to display information for.
+    /// </summary>
+    [Parameter]
+    public TacticsPuzzle? Puzzle { get; set; }
+
+    /// <summary>
+    /// Gets of sets the state of the puzzle.
+    /// </summary>
+    [Parameter]
+    public PuzzleState PuzzleState { get; set; }
+
+    /// <summary>
+    /// Gets or sets the engine used to analyze the puzzle's position.
+    /// </summary>
+    [Parameter]
+    public ChessEngine? PuzzleEngine { get; set; }
+
+    /// <summary>
+    /// Gets or sets a callback to be invoked when the user clicks 'next puzzle'.
+    /// This allows a parent component to control what this component's buttons do.
+    /// </summary>
+    [Parameter]
+    public Func<Task>? OnNext { get; set; }
+
+    /// <summary>
+    /// Gets or sets a callback to be invoked when the user clicks 'reset puzzle'.
+    /// This allows a parent component to control what this component's buttons do.
+    /// </summary>
+    [Parameter]
+    public Func<Task>? OnReset { get; set; }
+
+    /// <summary>
+    /// Gets or sets a callback to be invoked when the user clicks 'show solution'.
+    /// This allows a parent component to control what this component's buttons do.
+    /// </summary>
+    [Parameter]
+    public Func<Task>? OnReveal { get; set; }
+
+    /// <summary>
+    /// Gets a description of when and where the game the puzzle is taken from was played.
+    /// </summary>
+    public string Description
+    {
+        get
+        {
+            var descriptionComponents = new[] { Puzzle?.Site, Puzzle?.GameDate?.ToString("yyyy-MM-dd") };
+            return string.Join(", ", descriptionComponents.Where(s => !string.IsNullOrWhiteSpace(s)));
+        }
+    }
+}

@@ -1,0 +1,55 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+@using MjrChess.Trainer.Models
+
+<!-- Inherit from MaterialDesignComponentBase so that MDC elements are automatically attached -->
+@inherits MaterialDesignComponentBase
+
+<!-- A list of puzzle histories; used to show recent puzzles the user has attempted -->
+<div class="mdc-card">
+    <div class="mdc-card-body mdc-typography mdc-typography--body2">
+        <div class="mdc-list-group">
+            <ul class="mdc-list">
+                <!-- First, show the current puzzle being displayed -->
+                @if (CurrentPuzzle != null)
+                {
+                    <li class="mdc-list-item mdc-list-item--selected">
+                        <strong>
+                            <PuzzleLink Puzzle="CurrentPuzzle" />
+                        </strong>
+                    </li>
+                }
+                <!-- Then, display a list of recent puzzle attempts. -->
+                @if (History != null)
+                {
+                    @foreach (var puzzle in History)
+                    {
+                        <!-- Clicking on a puzzle history will invoke a callback provided by the parent component -->
+                        <li class="mdc-list-item" @onclick="() => OnPuzzleSelect?.Invoke(puzzle.Puzzle.Id)">
+                            <PuzzleLink Puzzle="puzzle.Puzzle" Solved="puzzle.Solved" />
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>
+    /// Gets or sets a list of recent puzzle histories for the current user.
+    /// </summary>
+    [Parameter]
+    public IEnumerable<PuzzleHistory>? History { get; set; }
+
+    /// <summary>
+    /// Gets or sets the current puzzle being displayed.
+    /// </summary>
+    [Parameter]
+    public TacticsPuzzle? CurrentPuzzle { get; set; }
+
+    /// <summary>
+    /// Gets or sets the function to invoke when a puzzle from the list is clicked.
+    /// </summary>
+    [Parameter]
+    public Func<int, Task>? OnPuzzleSelect { get; set; }
+}

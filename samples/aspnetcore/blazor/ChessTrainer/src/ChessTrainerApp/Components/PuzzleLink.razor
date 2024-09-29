@@ -1,0 +1,40 @@
+﻿@using MjrChess.Trainer.BlazorExtensions
+@using MjrChess.Trainer.Models
+
+<!-- Inherit from MaterialDesignComponentBase so that MDC elements are automatically attached -->
+@inherits MaterialDesignComponentBase
+
+<!-- A link to a specific tactics puzzle -->
+<span class="mdc-list-item__text selectable-list-item">Puzzle @Puzzle.Id</span>
+@if (Solved.HasValue)
+{
+    <!-- If information is available about whether the puzzles was solved correctly
+         or not, display that with an appopriate icon. -->
+    @if (Solved.Value)
+    {
+        <span class="mdc-layout-grid--align-right puzzleMessage correctMessage">
+            <i class="material-icons" aria-hidden="true">check</i>
+        </span>
+    }
+    else
+    {
+        <span class="mdc-layout-grid--align-right puzzleMessage incorrectMessage">
+            <i class="material-icons md-48" aria-hidden="true">clear</i>
+        </span>
+    }
+}
+
+@code {
+    /// <summary>
+    /// Gets or sets the puzzle to link to
+    /// </summary>
+    [Parameter]
+    public TacticsPuzzle Puzzle { get; set; } = default!; // This parameter is required. https://github.com/dotnet/aspnetcore/issues/11815
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the user successfully solved
+    /// the linked puzzle (if it comes from puzzle history)
+    /// </summary>
+    [Parameter]
+    public bool? Solved { get; set; }
+}
